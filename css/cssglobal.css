@@ -1,5 +1,12 @@
 body {
+    background-color: #f4f4f4;
+    margin: 0px;
+}
+
+nav {
     background-color: #BFE4A2;
+    padding: 0px;
+    margin: 0px;
 }
 
 #logo {
