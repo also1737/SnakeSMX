@@ -1,13 +1,5 @@
 header {
-    background-color: #7eec63;
+    background-color: #023409;
     padding: 20px;
-    text-align: center;
+    text-align: left;
   }
-button {
-    margin-left: 5cm;
-    margin-top: 3cm;
-    background-color: #53e918;
-    font-size: 20px; 
-    padding: 15px 30px;
-
-}
