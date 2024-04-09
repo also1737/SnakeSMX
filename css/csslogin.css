@@ -1,8 +1,52 @@
 body {
-    background-color: #333;
+    background-color: #BFE4A2;
+}
+
+img {
+    max-width: 200px;
+    max-height: auto;
+}
+
+h2 {
+    margin-top: 5%;
+    text-align: center;
+}
+
+p {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 40%;
+    text-align: center;
+    font-weight: bold;
 }
 
 form {
+    background-color: #3F780F;
+    color: #ffffff;
     margin: auto;
-    width: 20%;
+    margin-top: 50px;
+    padding: 50px;
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+input {
+    display: block;
+    margin-bottom: 30px;
+    padding: 5px;
+    width: 98%;
+    border-radius: 0px;
+    border-style: none;
+}
+
+button {
+    display: block; 
+    margin: auto;
+    margin-top: 60px;
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none;
+    font-size: 20px;
 }
