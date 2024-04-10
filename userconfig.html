@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <link rel="stylesheet" type="text/css" href="css/cssuserconfig.css">
         <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
         <title>Ajustes de usuario - SnakeSMX</title>
     </head>
@@ -12,8 +13,23 @@
         <main>
             <h1>Ajustes de Usuario</h1>
             <h2>Datos de Login</h2>
-            <p>Nombre de usuario</p>
+                <p>Nombre de usuario:</p>
+                <p>pepito</p>
+                <button>Cambiar</button>
+                <p>Cambiar contraseña</p>
+                <form method="POST">
+                    <input type="password" name="old_passwd" placeholder="Contraseña actual">
+                    <input type="password" name="new_passwd" placeholder="Nueva contraseña">
+                    <input type="password" new="repeat_passwd" placeholder="Repite la contraseña">
+                    <button type="submit">Confirmar</button>
+                </form>
             <h2>Avatar y color de serpiente</h2>
+            <p>Avatar:</p>
+            <img src="img/fotoperfil.png" alt="Foto de perfil" >
+            <form>
+                <label for="FotoPerfil">Cambiar Avatar:</label>
+                <input type="file" id="FotoPerfil" name="FotoPerfil" >
+            </form>
         </main>
     </body>
 </html>
