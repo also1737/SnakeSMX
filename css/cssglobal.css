@@ -13,3 +13,8 @@ nav {
     max-width: 200px;
     max-height: auto;
 }
+
+a {
+    text-decoration: none;
+    color: #000000;
+}

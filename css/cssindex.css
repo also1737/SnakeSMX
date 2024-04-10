@@ -1,5 +1,76 @@
-header {
-    background-color: #023409;
-    padding: 20px;
-    text-align: left;
-  }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+#menu {
+    order: 2; 
+}
+
+#menu ul li { 
+    display: inline;
+    margin-right: 20px;
+}
+
+.boton_inicio {
+    background-color: #5D9B2E;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    /*text-align: center;*/
+    padding: 50px 20px;
+}
+
+.cubo_pero_grande {
+    background-color: #ccc;
+    color: #777;
+    width: 100%; 
+    height: 300px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jugar {
+    display: block;
+    margin: auto;
+    width: 110px;
+    background-color: #5d9b2e; 
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.cubos_abajo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 200px;
+}
+
+h3 {
+    flex-basis: 45%;
+    border-bottom: #000 solid 2px;
+}
+
+.cubo {
+    background-color: #ccc;
+    color: #777;
+    width: 45%; 
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
