@@ -1,11 +1,72 @@
+.boton_inicio {
+    background-color: #5D9B2E;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 25px;
+}
+
 main {
     background-color: #ccc;
     box-sizing: border-box;
     width: 70%;
     margin: auto;
+    margin-top: 50px;
     padding: 20px 50px;
 }
 
 h1 {
     margin-top: 0%;
+    border-bottom: black solid 3px;
+}
+
+h2 {
+    margin-top: 75px;
+    border-bottom: #777 solid 2px;
+}
+
+#usr {
+    font-size: 23px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#foto {
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.derecha {
+    float: left;
+}
+
+input[type=password] {
+    border-width: 0px;
+    padding: 5px;
+    margin: 5px 0px;
+    height: 19px;
+}
+
+input[type=color] {
+    margin-top: 0px;
+    border-radius: 0px;
+    border-style: none;
+    background-color: black;
+}
+
+button {
+    background-color: #5d9b2e;
+    color: #ffffff;
+    display: block;
+    border-style: none;
+    margin-top: 17px;
+    width: 100px;
+    height: 25px;
+    border-radius: 3px;
 }

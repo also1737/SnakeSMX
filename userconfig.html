@@ -8,28 +8,50 @@
     <body>
         <nav>
             <img id="logo" src="img/snakesmx-logo.png" alt="rafa" >
-
+            <a href="index.html" class="boton_inicio">Inicio</a>
         </nav>
         <main>
             <h1>Ajustes de Usuario</h1>
             <h2>Datos de Login</h2>
-                <p>Nombre de usuario:</p>
-                <p>pepito</p>
-                <button>Cambiar</button>
+            <div class="grid">
+                <div>
+                    <p>Nombre de usuario:</p>
+                    <p id="usr">pepito</p>
+                    <button>Cambiar</button>
+                    <form>
+                        <input type="text" name="nuevo_user" placeholder="Introduce tu nuevo usuario">
+                        <button type="submit">Cambiar</button>
+                    </form>
+                </div>
+                <div>
                 <p>Cambiar contraseña</p>
-                <form method="POST">
-                    <input type="password" name="old_passwd" placeholder="Contraseña actual">
-                    <input type="password" name="new_passwd" placeholder="Nueva contraseña">
-                    <input type="password" new="repeat_passwd" placeholder="Repite la contraseña">
-                    <button type="submit">Confirmar</button>
-                </form>
+                    <form method="POST">
+                        <input type="password" name="old_passwd" placeholder="Contraseña actual">
+                        <input type="password" name="new_passwd" placeholder="Nueva contraseña">
+                        <input type="password" new="repeat_passwd" placeholder="Repite la contraseña">
+                        <button type="submit">Confirmar</button>
+                    </form>
+                </div>
+            </div>
             <h2>Avatar y color de serpiente</h2>
-            <p>Avatar:</p>
-            <img src="img/fotoperfil.png" alt="Foto de perfil" >
-            <form>
-                <label for="FotoPerfil">Cambiar Avatar:</label>
-                <input type="file" id="FotoPerfil" name="FotoPerfil" >
-            </form>
+            <div class="grid">
+                <div>
+                    <p class="derecha">Avatar:</p>
+                    <img id="foto" src="img/fotoperfil.png" alt="Foto de perfil" >
+                    <form>
+                        <label for="FotoPerfil">Cambiar Avatar:</label>
+                        <input type="file" id="FotoPerfil" name="FotoPerfil" >
+                        <button type="submit">Subir</button>
+                    </form>
+                </div>
+                <div>
+                    <p>Color de la serpiente</p>
+                    <form method="GET">
+                        <input type="color" id="ColorSerpiente" name="color" value="#00ff00">
+                        <button type="submit">Guardar color</button>
+                    </form>
+                </div>
+            </div>
         </main>
     </body>
 </html>
