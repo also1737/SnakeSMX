@@ -24,7 +24,7 @@ h1 {
   height: 200px;
   margin: auto;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 33% 34% 33%;
   vertical-align: bottom;
 }
 
@@ -35,13 +35,13 @@ h1 {
   left: 33%;
   text-align: center;
   height: 200px;
-  width: 33%;
+  width: 34%;
 }
 .segundocubo {
   background-color: #D9D9D9;
   position: absolute;
   bottom: 0px;
-  left: 66%;
+  left: 67%;
   text-align: center;
   height: 150px;
   width: 33%;
@@ -54,3 +54,9 @@ h1 {
   height: 100px;
   width: 33%;
 }
+table {
+  border: 1px solid;
+  width: 50%;
+  margin: auto;
+}
+tr:nth-child(even) {background-color: #bbb5b593;}
