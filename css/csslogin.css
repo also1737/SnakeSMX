@@ -41,9 +41,14 @@ button {
     display: block; 
     margin: auto;
     margin-top: 60px;
-    width: 50%;
     height: 40px;
     border-radius: 5px;
     border-style: none;
     font-size: 20px;
+}
+
+.manzana {
+    width: 20px;
+    height: 20px;
+    margin-left: 60%;   
 }
