@@ -10,15 +10,27 @@ h1, h2, h3 {
 
 nav {
     background-color: #BFE4A2;
-    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     margin: 0px;
     margin-bottom: 20px;
     font-size: 1.1em;
 }
 
+#menu {
+    order: 2; 
+}
+
+#menu ul li { 
+    display: inline;
+    margin-right: 20px;
+}  
+
 #logo {
     max-width: 200px;
-    max-height: auto;
+    max-height: 80px;
 }
 
 .boton_inicio {
@@ -30,7 +42,7 @@ nav {
   
 
 main {
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 a {
@@ -40,5 +52,5 @@ a {
 
 button {
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 1em;
 }

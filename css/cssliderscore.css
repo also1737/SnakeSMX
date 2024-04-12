@@ -1,20 +1,3 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  font-size: 0.9em;
-}
-
-#menu {
-  order: 2; 
-}
-
-#menu ul li { 
-  display: inline;
-  margin-right: 20px;
-}
-
 h1 {
   text-align: center;
 }

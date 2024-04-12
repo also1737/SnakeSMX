@@ -10,7 +10,7 @@
                     document.getElementById("selector").style = "background-color: #9b2e2e;";
                     document.getElementById("selector").innerHTML = "Cerrar";
                     abierto = true;
-                } else if (abierto) {
+                } else {
                     document.getElementById("esconder").style = "display: none;";
                     document.getElementById("selector").style = "background-color: #5d9b2e;";
                     document.getElementById("selector").innerHTML = "Cambiar";
@@ -19,14 +19,27 @@
             };
         </script> 
         <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Znamenny+Musical+Notation&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/cssuserconfig.css">
         <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
         <title>Ajustes de usuario - SnakeSMX</title>
     </head>
     <body>
         <nav>
-            <img id="logo" src="img/snakesmx-logo.png" alt="rafa" >
-            <a href="index.html" class="boton_inicio">Inicio</a>
+            <div class="logo">
+                <img id="logo" src="img/snakesmx-logo.png" alt="RAFA">
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="userconfig.html">Configuración</a></li>
+                    <li><a href="leaderscore.html">Leaderboard</a></li>
+                    <li><a href="index.html" class="boton_inicio">Inicio</a></li>
+                </ul>
+            </div>
         </nav>
         <main>
             <h1>Ajustes de Usuario</h1>
@@ -64,7 +77,7 @@
                     <img id="foto" src="img/fotoperfil.png" alt="Foto de perfil" >
                     <form method="post">
                         <label for="FotoPerfil">Cambiar Avatar:</label>
-                        <input type="file" id="FotoPerfil" name="FotoPerfil" >
+                        <input type="file" id="FotoPerfil" name="FotoPerfil" accept="image/*">
                         <button type="submit">Subir</button>
                     </form>
                 </div>

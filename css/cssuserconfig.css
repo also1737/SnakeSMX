@@ -1,15 +1,9 @@
-.boton_inicio {
-    float: right;
-    margin-right: 20px;
-    margin-top: 25px;
-}
-  
 main {
     background-color: #ccc;
     box-sizing: border-box;
     width: 70%;
     margin: auto;
-    margin-top: 70px;
+    margin-top: 50px;
     padding: 20px 50px;
 }
 
