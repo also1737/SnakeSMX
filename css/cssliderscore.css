@@ -3,6 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  font-size: 0.9em;
 }
 
 #menu {
@@ -55,8 +56,19 @@ h1 {
   width: 33%;
 }
 table {
+  border-collapse: collapse;
   border: 1px solid;
   width: 50%;
   margin: auto;
+  padding: 0px;
 }
+
+th, td {
+  text-align: center;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  padding: 10px 5px;
+}
+
 tr:nth-child(even) {background-color: #bbb5b593;}

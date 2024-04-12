@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
+    <head> 
+        <script>
+            var abierto = false;
+            
+            function mostrar_esconder() {
+                if (!abierto) {
+                    document.getElementById("esconder").style = "display: block;";
+                    document.getElementById("selector").style = "background-color: #9b2e2e;";
+                    document.getElementById("selector").innerHTML = "Cerrar";
+                    abierto = true;
+                } else if (abierto) {
+                    document.getElementById("esconder").style = "display: none;";
+                    document.getElementById("selector").style = "background-color: #5d9b2e;";
+                    document.getElementById("selector").innerHTML = "Cambiar";
+                    abierto = false;
+                };
+            };
+        </script> 
         <meta charset="UTF-8" >
         <link rel="stylesheet" type="text/css" href="css/cssuserconfig.css">
         <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
@@ -16,20 +33,26 @@
             <h2>Datos de Login</h2>
             <div class="grid">
                 <div>
-                    <p>Nombre de usuario:</p>
-                    <p id="usr">pepito</p>
-                    <button>Cambiar</button>
-                    <form method="post">
-                        <input type="text" name="nuevo_user" placeholder="Introduce tu nuevo usuario">
-                        <button type="submit">Cambiar</button>
-                    </form>
+                    <h4>Nombre de usuario</h4>
+                    <p id="usr">Pepe</p>
+                    <button id="selector" onclick="mostrar_esconder()">Cambiar</button>
+                    <div id="esconder">
+                        <form method="post">
+                            <p>Introduce tu nuevo nombre de usuario</p>
+                            <input type="text" id="nuevo_user" name="nuevo_user"><br>
+                            <button type="submit">Cambiar</button>
+                        </form>
+                    </div>
                 </div>
                 <div>
-                <p>Cambiar contraseña</p>
+                <h4>Cambiar contraseña</h4>
                     <form method="POST">
-                        <input type="password" name="old_passwd" placeholder="Contraseña actual">
-                        <input type="password" name="new_passwd" placeholder="Nueva contraseña">
-                        <input type="password" new="repeat_passwd" placeholder="Repite la contraseña">
+                        <label for="old_passwd">Contraseña actual:</label>
+                        <input type="password" name="old_passwd"><br>
+                        <label for="old_passwd">Contraseña nueva:</label>
+                        <input type="password" name="new_passwd"><br>
+                        <label for="old_passwd">Confirmar Contraseña:</label>
+                        <input type="password" new="repeat_passwd"><br>
                         <button type="submit">Confirmar</button>
                     </form>
                 </div>
@@ -37,7 +60,7 @@
             <h2>Avatar y color de serpiente</h2>
             <div class="grid">
                 <div>
-                    <p class="derecha">Avatar:</p>
+                    <h4 class="izquierda">Avatar:</h4>
                     <img id="foto" src="img/fotoperfil.png" alt="Foto de perfil" >
                     <form method="post">
                         <label for="FotoPerfil">Cambiar Avatar:</label>
@@ -46,10 +69,10 @@
                     </form>
                 </div>
                 <div>
-                    <p>Color de la serpiente</p>
+                    <h4>Color de la serpiente</h4>
                     <form method="GET">
                         <input type="color" id="ColorSerpiente" name="color" value="#00ff00">
-                        <button type="submit">Guardar color</button>
+                        <button type="submit">Guardar</button>
                     </form>
                 </div>
             </div>

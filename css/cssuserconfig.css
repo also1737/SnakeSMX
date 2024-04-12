@@ -1,19 +1,15 @@
 .boton_inicio {
-    background-color: #5D9B2E;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
     float: right;
     margin-right: 20px;
     margin-top: 25px;
 }
-
+  
 main {
     background-color: #ccc;
     box-sizing: border-box;
     width: 70%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 70px;
     padding: 20px 50px;
 }
 
@@ -23,12 +19,24 @@ h1 {
 }
 
 h2 {
-    margin-top: 75px;
+    margin-top: 50px;
     border-bottom: #777 solid 2px;
 }
 
 #usr {
     font-size: 23px;
+}
+
+#selector {
+    background-color: #5d9b2e;
+}
+
+#esconder {
+    display: none;
+}
+
+.enlinea {
+    display: inline;
 }
 
 .grid {
@@ -38,12 +46,25 @@ h2 {
 
 #foto {
     margin-left: 20px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 
-.derecha {
+.izquierda {
     float: left;
+}
+
+label {
+    display: inline-block;
+    width: 190px;
+    margin-top: 20px;
+}
+
+input[type=text] {
+    border-width: 0px;
+    padding: 5px;
+    margin: 5px 0px;
+    height: 19px;
 }
 
 input[type=password] {

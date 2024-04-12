@@ -1,6 +1,11 @@
 body {
     background-color: #f4f4f4;
-    margin: 0px;
+    margin: 0px;    
+    font-family: "Cabin", sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Merriweather", serif;
 }
 
 nav {
@@ -8,6 +13,7 @@ nav {
     padding: 0px;
     margin: 0px;
     margin-bottom: 20px;
+    font-size: 1.1em;
 }
 
 #logo {
@@ -15,7 +21,24 @@ nav {
     max-height: auto;
 }
 
+.boton_inicio {
+    background-color: #5D9B2E;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+  
+
+main {
+    font-size: 1em;
+}
+
 a {
     text-decoration: none;
     color: #000000;
+}
+
+button {
+    font-weight: bold;
+    font-size: 0.9em;
 }
