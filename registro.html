@@ -8,8 +8,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Znamenny+Musical+Notation&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/cssglobal.css" >
-        <link rel="stylesheet" type="text/css" href="css/csslogin.css" >
-        <title>Inicio de sesión - SnakeSMX</title>
+        <link rel="stylesheet" type="text/css" href="css/cssregistro.css" >
+        <title>Registro de usuario - SnakeSMX</title>
     </head>
     <body>
         <nav>
@@ -28,10 +28,12 @@
         <main>
             <h2>SNAKESMX</h2>
             <form action="#" method="POST">
-                <p>INICIAR SESIÓN</p> 
+                <p>REGISTRARSE</p> 
                 <label for="usuario" >Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>
                 <label for="contraseña" >Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" minlength="8" required>
+                <label for="contraseña" >Confirmar contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" minlength="8" required>
                 <button type="submit">Acceder</button>
             </form>
