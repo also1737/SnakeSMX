@@ -18,21 +18,22 @@
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="userconfig.html">Configuración</a></li>
-                    <li><a href="leaderscore.html">Leaderboard</a></li>
-                    <li><a href="login.html" class="boton_inicio">Iniciar Sesión</a></li>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="userconfig.php">Configuración</a></li>
+                    <li><a href="leaderscore.php">Leaderboard</a></li>
+                    <li><a href="login.php" class="boton_inicio">Iniciar Sesión</a></li>
                 </ul>
             </div>
         </nav>
         <main>
             <h2>SNAKESMX</h2>
-            <form action="#" method="POST">
+            <form action="php/control-login.php" method="POST">
                 <p>INICIAR SESIÓN</p> 
                 <label for="usuario" >Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>
                 <label for="contraseña" >Contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" minlength="8" required>
+                <p><?php echo $mensaje_error; ?></p>
                 <button type="submit">Acceder</button>
             </form>
         </main>
