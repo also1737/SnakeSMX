@@ -1,3 +1,14 @@
+<?php
+print_r($_COOKIE);
+
+if (isset($_COOKIE["PHPSESSID"])) {
+    session_start();
+    $boton = "Cerrar ";
+} else  {
+    $boton = "Iniciar ";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -33,6 +44,7 @@
                 <input type="text" id="usuario" name="usuario" required>
                 <label for="contraseña" >Contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" minlength="8" required>
+                <a href="registro.php">Crea una cuenta</a>
                 <p><?php echo $mensaje_error; ?></p>
                 <button type="submit">Acceder</button>
             </form>

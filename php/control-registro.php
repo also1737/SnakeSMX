@@ -11,19 +11,15 @@ function login_end(){
 }
 
 //variables que usaremos
-$user = $pass = $consulta = $resultado = $fila = "";
+$user = $pass1 = $pass2 = $consulta = $resultado = $fila = "";
 
 //Comprobamos si se ha rellenado el formulario
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    //si ya había una sesión abierta, la cerramos
-    if (isset($_COOKIE["PHPSESSID"])) {
-        session_destroy();
-    }
-
+    
     //cogemos los valores que ha introducido el usuario y los ponemos entre comillas
     $user = "'" . $_POST["usuario"] . "'";
-    $pass = $_POST["contraseña"];
+    $pass1 = "'" . $_POST["contraseña1"] . "'";
+    $pass2 = "'" . $_POST["contraseña2"] . "'";
 
     // Establecemos conexión
     $conn = new mysqli($servidor, $usuario, $password, $base_datos);
@@ -45,32 +41,41 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Cerramos conexión con la base de datos
     mysqli_close($conn);
 
-    //comprobamos si el array está vacío (el usuario no existe)
-    if (empty($resultado)) {
+    //comprobamos si el array no está vacío (el usuario existe y no se puede crear)
+    if (!empty($resultado)) {
         //lanzamos error
         login_end();
-    }
-    else { //existe
+    } else { //no existe (cremos usuario)
         
-        //Sacamos la contraseña del usuario del array
-        $fila = $resultado[0];
-        $contraseña = $fila["Password"];
-        
-        //comprobamos que es igual a la contraseña de la BD
-        if ($contraseña == $pass) {
-            //Abrimos sesión
-            session_start();
-            $_SESSION["Usuario"] = trim($user, "'");
-            $_SESSION["Password"] = $pass;
-            $_SESSION["foto"] = "";
+        //comprobamos que las contraseñas sean iguales
+        if ($pass1 === $pass2) {
 
-            header('Location: ../index.php');
+            //son iguales, añadimos usuario
+            $conn = new mysqli($servidor, $usuario, $password, $base_datos);
+            
+            if ($conn->connect_errno) {
+                die("<p>Connection failed: $conn->connect_error</p>");
+            }
 
-        }
-        else {
-            //lanzamos error
+            //añadimos el usuario y la contraseña a la BD
+            $consulta = "INSERT INTO Usuarios (Usuario, Password) VALUES ($user, $pass2)";
+
+            //realizamos consulta
+            $conn->query($consulta);
+
+            //cerramos conexión MySQL
+            mysqli_close($conn);
+
+            //redirigimos a inicio de sesión
+            header('Location: ../login.php');
+
+        } else {
+
+            //no son iguales, error
             login_end();
+
         }
+
     }
     
 }
