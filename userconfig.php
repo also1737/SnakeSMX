@@ -1,13 +1,5 @@
 <?php
-print_r($_COOKIE);
-
-if (isset($_COOKIE["PHPSESSID"])) {
-    session_start();
-    $boton = "Cerrar ";
-} else  {
-    $boton = "Iniciar ";
-}
-
+ include "php/check-sesion.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -64,7 +56,7 @@ if (isset($_COOKIE["PHPSESSID"])) {
                     <div id="esconder">
                         <form action="php/cambio-user.php" method="post">
                             <p>Introduce tu nuevo nombre de usuario</p>
-                            <input type="text" id="nuevo_user" name="nuevo_user"><br>
+                            <input type="text" id="nuevo_user" name="nuevo_user" required><br>
                             <button type="submit">Cambiar</button>
                         </form>
                     </div>
@@ -73,11 +65,11 @@ if (isset($_COOKIE["PHPSESSID"])) {
                 <h4>Cambiar contraseña</h4>
                     <form action method="POST">
                         <label for="old_passwd">Contraseña actual:</label>
-                        <input type="password" name="old_passwd"><br>
+                        <input type="password" name="old_passwd" required><br>
                         <label for="old_passwd">Contraseña nueva:</label>
-                        <input type="password" name="new_passwd"><br>
+                        <input type="password" name="new_passwd" required><br>
                         <label for="old_passwd">Confirmar Contraseña:</label>
-                        <input type="password" new="repeat_passwd"><br>
+                        <input type="password" new="repeat_passwd" required><br>
                         <button type="submit">Confirmar</button>
                     </form>
                 </div>
@@ -87,31 +79,7 @@ if (isset($_COOKIE["PHPSESSID"])) {
                 <div>
                     <h4 class="izquierda">Avatar:</h4>
                     <?php
-                        // si es estúpido pero funciona no es estúpido
-                        $dir = "/var/www/SnakeSMX/fotos";
-                        
-                        $archivos = scandir($dir);
-
-                        $patron = "/$_SESSION[Usuario]/";
-                        
-                        foreach ($archivos as $archivo) {
-
-                            if (preg_match($patron, $archivo)) {
-
-                                echo "<img id='foto' src='fotos/$archivo' alt='foto de perfil'>";
-                                $imagen_defecto = "";
-                                break;
-
-                            } else {
-
-                                $imagen_defecto = "<img id='foto' src='img/fotoperfil.png' alt='Foto de perfil' >";
-
-                            }
-
-                        }
-
-                        echo $imagen_defecto;
-
+                        include "php/buscar-foto.php";
                     ?>
                     
                     <form action="php/fotoperfil.php" method="post" enctype="multipart/form-data">

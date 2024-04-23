@@ -1,13 +1,5 @@
 <?php
-print_r($_COOKIE);
-
-if (isset($_COOKIE["PHPSESSID"])) {
-    session_start();
-    $boton = "Cerrar ";
-} else  {
-    $boton = "Iniciar ";
-}
-
+ include "php/check-sesion.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,17 +29,18 @@ if (isset($_COOKIE["PHPSESSID"])) {
         </div>
     </nav>
     <h1>LEADERBOARD</h1>
+    <?php include "pruebas_php/users-podio.php"; ?>
     <div class="grid">
         <div class="tercercubo">
-            <h3>ALVARO</h3>
+            <h3><?php echo $tercero; ?></h3>
             <p>3º</p>
         </div>
         <div class="primercubo">
-            <h1><?php echo $_SESSION["Usuario"]; ?></h1>
+            <h1><?php echo $primero; ?></h1>
             <p>1º</p>
         </div>
         <div class="segundocubo">
-            <h2>MARIA</h2>
+            <h2><?php echo $segundo; ?></h2>
             <p>2º</p>
         </div>
     </div>

@@ -1,16 +1,6 @@
-<?php
-print_r($_COOKIE);
-
-if (isset($_COOKIE["PHPSESSID"])) {
-    session_start();
-    $boton = "Cerrar ";
-} else  {
-    $boton = "Iniciar ";
-}
-
-
+<<?php
+ include "php/check-sesion.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -47,14 +37,12 @@ if (isset($_COOKIE["PHPSESSID"])) {
         <p>aquí podemos poner texto de explicación del juego y eso</p>
         <button onclick="location.href='juego.php'" class="jugar">Jugar</button>
         <div class="cubos_abajo">
-            <h3>Tus mejores puntuaciones</h3>
             <h3>Mejores puntuaciones globales</h3>
-            <div class="cubo">
-                <p>Tres Mejores Partidas del Usuario</p>
-            </div>
+            <h3>Tus mejores puntuaciones</h3>
             <div class="cubo">
                 <p>Tres Mejores Partidas Globales</p>
             </div>
+            <?php include "php/3-partidas-user.php"; ?>
         </div>
     </main>
 </body>
