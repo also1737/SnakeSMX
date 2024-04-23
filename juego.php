@@ -1,3 +1,14 @@
+<?php
+print_r($_COOKIE);
+
+if (isset($_COOKIE["PHPSESSID"])) {
+    session_start();
+    $boton = "Cerrar ";
+} else  {
+    $boton = "Iniciar ";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,10 +30,10 @@
         </div>
         <div id="menu">
             <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="userconfig.html">Configuración</a></li>
-                    <li><a href="leaderscore.html">Leaderboard</a></li>
-                    <li><a href="login.html" class="boton_inicio">Iniciar Sesión</a></li>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="userconfig.php">Configuración</a></li>
+                    <li><a href="leaderscore.php">Leaderboard</a></li>
+                    <li><a href="login.php" class="boton_inicio"><?php echo $boton ?> Sesión</a></li>
             </ul>
         </div>
     </nav>

@@ -1,3 +1,14 @@
+<?php
+print_r($_COOKIE);
+
+if (isset($_COOKIE["PHPSESSID"])) {
+    session_start();
+    $boton = "Cerrar ";
+} else  {
+    $boton = "Iniciar ";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head> 
@@ -35,10 +46,10 @@
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="userconfig.html">Configuración</a></li>
-                    <li><a href="leaderscore.html">Leaderboard</a></li>
-                    <li><a href="login.html" class="boton_inicio">Iniciar Sesión</a></li>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="userconfig.php">Configuración</a></li>
+                    <li><a href="leaderscore.php">Leaderboard</a></li>
+                    <li><a href="login.php" class="boton_inicio"><?php echo $boton ?>Sesión</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,10 +59,10 @@
             <div class="grid">
                 <div>
                     <h4>Nombre de usuario</h4>
-                    <p id="usr">Pepe</p>
+                    <p id="usr"><?php echo $_SESSION["Usuario"]; ?></p>
                     <button id="selector" onclick="mostrar_esconder()">Cambiar</button>
                     <div id="esconder">
-                        <form method="post">
+                        <form action="php/cambio-user.php" method="post">
                             <p>Introduce tu nuevo nombre de usuario</p>
                             <input type="text" id="nuevo_user" name="nuevo_user"><br>
                             <button type="submit">Cambiar</button>
@@ -60,7 +71,7 @@
                 </div>
                 <div>
                 <h4>Cambiar contraseña</h4>
-                    <form method="POST">
+                    <form action method="POST">
                         <label for="old_passwd">Contraseña actual:</label>
                         <input type="password" name="old_passwd"><br>
                         <label for="old_passwd">Contraseña nueva:</label>
@@ -75,10 +86,37 @@
             <div class="grid">
                 <div>
                     <h4 class="izquierda">Avatar:</h4>
-                    <img id="foto" src="img/fotoperfil.png" alt="Foto de perfil" >
-                    <form method="post">
+                    <?php
+                        // si es estúpido pero funciona no es estúpido
+                        $dir = "/var/www/SnakeSMX/fotos";
+                        
+                        $archivos = scandir($dir);
+
+                        $patron = "/$_SESSION[Usuario]/";
+                        
+                        foreach ($archivos as $archivo) {
+
+                            if (preg_match($patron, $archivo)) {
+
+                                echo "<img id='foto' src='fotos/$archivo' alt='foto de perfil'>";
+                                $imagen_defecto = "";
+                                break;
+
+                            } else {
+
+                                $imagen_defecto = "<img id='foto' src='img/fotoperfil.png' alt='Foto de perfil' >";
+
+                            }
+
+                        }
+
+                        echo $imagen_defecto;
+
+                    ?>
+                    
+                    <form action="php/fotoperfil.php" method="post" enctype="multipart/form-data">
                         <label for="FotoPerfil">Cambiar Avatar:</label>
-                        <input type="file" id="FotoPerfil" name="FotoPerfil" accept="image/*">
+                        <input type="file" id="FotoPerfil" name="FotoPerfil">
                         <button type="submit">Subir</button>
                     </form>
                 </div>

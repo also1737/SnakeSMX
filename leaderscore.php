@@ -1,7 +1,18 @@
+<?php
+print_r($_COOKIE);
+
+if (isset($_COOKIE["PHPSESSID"])) {
+    session_start();
+    $boton = "Cerrar ";
+} else  {
+    $boton = "Iniciar ";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title> Leaderscore </title>
+    <title> Leaderboard </title>
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +29,10 @@
         </div>
         <div id="menu">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="userconfig.html">Configuración</a></li>
-                <li><a href="leaderscore.html">Leaderboard</a></li>
-                <li><a href="login.html" class="boton_inicio">Iniciar Sesión</a></li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="userconfig.php">Configuración</a></li>
+                <li><a href="leaderscore.php">Leaderboard</a></li>
+                <li><a href="login.php" class="boton_inicio"><?php echo $boton ?>Sesión</a></li>
             </ul>
         </div>
     </nav>
@@ -32,7 +43,7 @@
             <p>3º</p>
         </div>
         <div class="primercubo">
-            <h1>DAVID</h1>
+            <h1><?php echo $_SESSION["Usuario"]; ?></h1>
             <p>1º</p>
         </div>
         <div class="segundocubo">
