@@ -69,7 +69,7 @@
                         <label for="old_passwd">Contraseña nueva:</label>
                         <input type="password" name="new_passwd" required><br>
                         <label for="old_passwd">Confirmar Contraseña:</label>
-                        <input type="password" new="repeat_passwd" required><br>
+                        <input type="password" name="repeat_passwd" required><br>
                         <button type="submit">Confirmar</button>
                     </form>
                 </div>
