@@ -23,10 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     //convertimos la consulta en un array para poder leerla
     $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
-    //Solo sacamos la contraseña del array
+    //Solo sacamos la contraseña del array y le asignamos la variable $contraseñaBD
     $contraseñaBD = $resultado[0]["Password"];
-
-    echo $contraseñaBD;
     //Comparamos la contraseña de la base de datos con la contraseña introducida en el campo de contraseña antigua
     if ($contraseñaBD == $contraseña_actual) {
         //Comparamos la contraseña nueva y la repeticion de la contraseña
