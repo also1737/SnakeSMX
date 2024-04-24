@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($contraseñaBD == $contraseña_actual) {
         if ($contraseña_nueva == $repetir_contraseña) {
-            $consulta = "UPDATE Usuarios SET Password = $contraseña_nueva WHERE Usuario = '$_SESSION[Usuario]'";
+            $consulta = "UPDATE Usuarios SET Password = '$contraseña_nueva' WHERE Usuario = '$_SESSION[Usuario]'";
             $conn->query($consulta);
 
         } 

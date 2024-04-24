@@ -1,6 +1,6 @@
 <?php
 //datos sobre MySQL necesarios para la conexión
-$servidor = "192.168.121.186";
+$servidor = "192.168.121.90";
 $base_datos = "SnakeSMX";
 $usuario = "proyecto";
 $password = "Alumne1234!";
@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     //si ya había una sesión abierta, la cerramos
     if (isset($_COOKIE["PHPSESSID"])) {
+        session_start();
         session_destroy();
     }
 
