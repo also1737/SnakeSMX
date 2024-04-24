@@ -1,15 +1,9 @@
 <?php
-print_r($_COOKIE);
 
-if (isset($_COOKIE["PHPSESSID"])) {
-    session_start();
-    $boton = "Cerrar ";
-} else  {
-    $boton = "Iniciar ";
-}
+include "check-sesion.php";
 
 //variables de conexión MySQL
-$servidor = "192.168.121.186";
+$servidor = "192.168.121.90";
 $base_datos = "SnakeSMX";
 $usuario = "proyecto";
 $password = "Alumne1234!";

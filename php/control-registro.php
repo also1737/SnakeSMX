@@ -1,14 +1,19 @@
 <?php
 //datos sobre MySQL necesarios para la conexión
-$servidor = "192.168.121.186";
+$servidor = "192.168.121.90";
 $base_datos = "SnakeSMX";
 $usuario = "proyecto";
 $password = "Alumne1234!";
 
-function login_end(){
-    echo "Usuario o contraseña incorrecto";
+function error_user(){
+    echo "El usuario ya existe";
     die();
 }
+function error_pass(){
+    echo "Las contraseñas no coinciden";
+    die();
+}
+
 
 //variables que usaremos
 $user = $pass1 = $pass2 = $consulta = $resultado = $fila = "";
@@ -44,7 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //comprobamos si el array no está vacío (el usuario existe y no se puede crear)
     if (!empty($resultado)) {
         //lanzamos error
-        login_end();
+        error_user();
+        
     } else { //no existe (cremos usuario)
         
         //comprobamos que las contraseñas sean iguales
@@ -72,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
 
             //no son iguales, error
-            login_end();
+            error_pass();
 
         }
 

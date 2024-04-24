@@ -1,4 +1,4 @@
-<<?php
+<?php
  include "php/check-sesion.php";
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,15 @@
             <div class="cubo">
                 <p>Tres Mejores Partidas Globales</p>
             </div>
-            <?php include "php/3-partidas-user.php"; ?>
+            <table>
+                <tr>
+                    <th>Puntos</th>
+                    <th>Usuario</th>
+                    <th>Mapa</th>
+                    <th>Fecha</th>
+                </tr>
+                <?php include "php/3-partidas-user.php"; ?>
+            </table>
         </div>
     </main>
 </body>

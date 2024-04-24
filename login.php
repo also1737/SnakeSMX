@@ -37,7 +37,6 @@
                 <label for="contraseña" >Contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" minlength="8" required>
                 <a href="registro.php">Crea una cuenta</a>
-                <p><?php echo $mensaje_error; ?></p>
                 <button type="submit">Acceder</button>
             </form>
         </main>

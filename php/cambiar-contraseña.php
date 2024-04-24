@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         //Comparamos la contraseña nueva y la repeticion de la contraseña
         if ($contraseña_nueva == $repetir_contraseña) {
             //Si las dos contraseñas son iguales, realizaremos una consulta para actualizar la nueva contraseña a la base de datos
-            $consulta = "UPDATE Usuarios SET Password = $contraseña_nueva WHERE Usuario = '$_SESSION[Usuario]'";
+            $consulta = "UPDATE Usuarios SET Password = '$contraseña_nueva' WHERE Usuario = '$_SESSION[Usuario]'";
             $conn->query($consulta);
 
         } 

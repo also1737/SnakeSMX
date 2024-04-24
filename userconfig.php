@@ -90,7 +90,7 @@
                 </div>
                 <div>
                     <h4>Color de la serpiente</h4>
-                    <form method="GET">
+                    <form action="php/color_serpiente.php" method="POST">
                         <input type="color" id="ColorSerpiente" name="ColorSerpiente" value="#00ff00">
                         <button type="submit">Guardar</button>
                     </form>
