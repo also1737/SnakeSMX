@@ -63,7 +63,7 @@
                 </div>
                 <div>
                 <h4>Cambiar contraseña</h4>
-                    <form action method="POST">
+                    <form action="php/cambiar-contraseña.php" method="POST">
                         <label for="old_passwd">Contraseña actual:</label>
                         <input type="password" name="old_passwd" required><br>
                         <label for="old_passwd">Contraseña nueva:</label>

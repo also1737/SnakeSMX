@@ -1,11 +1,15 @@
 <?php
+
+include "check-sesion.php";
+
 //variables de conexión MySQL
-$servidor = "192.168.121.186";
+$servidor = "192.168.121.90";
 $base_datos = "SnakeSMX";
 $usuario = "proyecto";
 $password = "Alumne1234!";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
     $contraseña_actual =  $_POST["old_passwd"] ;
     $contraseña_nueva =  $_POST["new_passwd"] ;
     $repetir_contraseña =  $_POST["repeat_passwd"] ;
@@ -20,7 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //convertimos la consulta en un array para poder leerla
     $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
 
-    print_r($resultado);
+    $contraseñaBD = $resultado[0]["Password"];
+
+    echo $contraseñaBD;
 
     
 
