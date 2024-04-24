@@ -91,7 +91,7 @@
                 <div>
                     <h4>Color de la serpiente</h4>
                     <form method="GET">
-                        <input type="color" id="ColorSerpiente" name="color" value="#00ff00">
+                        <input type="color" id="ColorSerpiente" name="ColorSerpiente" value="#00ff00">
                         <button type="submit">Guardar</button>
                     </form>
                 </div>
