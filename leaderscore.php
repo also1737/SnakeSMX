@@ -29,7 +29,7 @@
         </div>
     </nav>
     <h1>LEADERBOARD</h1>
-    <?php include "pruebas_php/users-podio.php"; ?>
+    <?php include "php/users-podio.php"; ?>
     <div class="grid">
         <div class="tercercubo">
             <h3><?php echo $tercero; ?></h3>
@@ -45,74 +45,7 @@
         </div>
     </div>
     <main>
-        <table>
-            <tr>
-               <th>Puesto</th>
-               <th>Puntos</th>
-               <th>Usuario</th>
-               <th>Fecha</th> 
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>300</td>
-                <td>David</td>
-                <td>28/04/2024</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>280</td>
-                <td>Maria</td>
-                <td>29/04/2024</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>200</td>
-                <td>Alvaro</td>
-                <td>30/04/2024</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>190</td>
-                <td>Justin</td>
-                <td>24/04/2024</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>189</td>
-                <td>Rosa</td>
-                <td>19/04/2024</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>185</td>
-                <td>Miguel</td>
-                <td>15/04/2024</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>180</td>
-                <td>Fred</td>
-                <td>13/04/2024</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>175</td>
-                <td>Daniel</td>
-                <td>11/04/2024</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>115</td>
-                <td>Denis</td>
-                <td>09/04/2024</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>2</td>
-                <td>Joel</td>
-                <td>08/04/2024</td>
-            </tr>
-        </table>
+        <?php include "php/filas-leaderboard.php"; ?>
     </main>
 </body>
 </html>
