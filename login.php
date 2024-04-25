@@ -1,5 +1,12 @@
 <?php
  include "php/check-sesion.php";
+
+//si ya había una sesión abierta, la cerramos y destruimos cookie
+if (isset($_COOKIE["PHPSESSID"])) {
+    session_destroy();
+    setcookie('PHPSESSID','',time() - 1);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

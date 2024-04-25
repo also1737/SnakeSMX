@@ -1,5 +1,8 @@
 <?php
  include "php/check-sesion.php";
+ if (!isset($_COOKIE["PHPSESSID"])){
+    header('Location: login.php');
+ }
 ?>
 <!DOCTYPE html>
 <html lang="es">

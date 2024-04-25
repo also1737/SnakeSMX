@@ -30,23 +30,48 @@ main {
 }
 
 .cubos_abajo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 70px;
     margin-top: 200px;
 }
 
 h3 {
-    flex-basis: 45%;
-    border-bottom: #000 solid 2px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    width: 94%; 
+    /*border-bottom: #000 solid 2px;*/
+    vertical-align: bottom;
 }
 
-.cubo {
+.derecha {
+    float: right;
+    box-sizing: border-box;
     background-color: #ccc;
     color: #777;
-    width: 45%; 
+    margin-left: 20px;
+    width: 94%; 
     height: 300px;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
+
+table {
+    margin-left: 20px;
+    padding-left: 20px;
+    width: 96%;
+    height: auto;
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: #000 solid 2px;
+}
+
+td {
+    text-align: center;
+    width: auto;
+    height: 40px;
+}
+
+tr:nth-child(even) {background-color: #bbb5b593;}

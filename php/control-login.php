@@ -16,12 +16,6 @@ $user = $pass = $consulta = $resultado = $fila = "";
 //Comprobamos si se ha rellenado el formulario
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    //si ya había una sesión abierta, la cerramos
-    if (isset($_COOKIE["PHPSESSID"])) {
-        session_start();
-        session_destroy();
-    }
-
     //cogemos los valores que ha introducido el usuario y los ponemos entre comillas
     $user = "'" . $_POST["usuario"] . "'";
     $pass = $_POST["contraseña"];

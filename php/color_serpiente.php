@@ -22,8 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die("<p>Connection failed: $conn->connect_error</p>");
     }
 
-    echo $color;
-
     //creamos la consulta que añadirá el color de serpiente
     $consulta = "UPDATE Usuarios SET ColorSerp = '$color' WHERE Usuario = '$_SESSION[Usuario]'";
 
@@ -31,6 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     mysqli_close($conn);
 
-    //header('Location: ../userconfig.php');
+    header('Location: ../userconfig.php');
 
 }
