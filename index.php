@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Znamenny+Musical+Notation&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/cssindex.css">
     <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
+    <link rel="stylesheet" type="text/css" href="css/cssindex.css">
     <title>Inicio - SnakeSMX</title>
 </head>
 <body>
@@ -39,20 +39,23 @@
         <div class="cubos_abajo">
             <h3>Mejores puntuaciones globales</h3>
             <h3>Tus mejores puntuaciones</h3>
-            <div class="cubo">
-                <p>Tres Mejores Partidas Globales</p>
-            </div>
-            <table>
-                <tr>
-                    <th>Puntos</th>
-                    <th>Usuario</th>
-                    <th>Mapa</th>
-                    <th>Fecha</th>
-                </tr>
-                <?php include "php/3-partidas-user.php"; ?>
-            </table>
+            <?php include "php/6-partidas-global.php"; ?>
+            <?php include "php/6-partidas-user.php"; ?>
         </div>
     </main>
+    
+    <script>
+
+        //código que colorea las tres líneas de la tabla global
+
+        var x = document.getElementsByTagName("tr");
+        console.log(x);
+
+        x[1].style.backgroundColor = "#ECDE64"; //primera línea = oro
+        x[2].style.backgroundColor = "#D9D9D9"; //segunda línea = plata
+        x[3].style.backgroundColor = "#E7C369"; //tercera línea = bronce
+
+    </script>
 </body>
 </html>
 
