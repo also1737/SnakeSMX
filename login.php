@@ -45,6 +45,7 @@ if (isset($_COOKIE["PHPSESSID"])) {
                 <input type="password" id="contraseña" name="contraseña" minlength="8" required>
                 <a href="registro.php">Crea una cuenta</a>
                 <button type="submit">Acceder</button>
+                <?php if(isset($mensaje_error)) { echo $mensaje_error; } ?>
             </form>
         </main>
     </body>

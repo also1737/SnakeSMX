@@ -9,6 +9,9 @@ function login_end(){
     echo "Usuario o contraseña incorrecto";
     die();
 }
+if (empty($resultado)) {
+    $mensaje_error = login_end();
+}
 
 //variables que usaremos
 $user = $pass = $consulta = $resultado = $fila = "";
