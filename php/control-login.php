@@ -9,9 +9,6 @@ function login_end(){
     echo "Usuario o contraseña incorrecto";
     die();
 }
-if (empty($resultado)) {
-    $mensaje_error = login_end();
-}
 
 //variables que usaremos
 $user = $pass = $consulta = $resultado = $fila = "";
@@ -55,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $contraseña = $fila["Password"];
         
         //comprobamos que es igual a la contraseña de la BD
-        if ($contraseña == $pass) {
+        if ($contraseña === $pass) {
             //Abrimos sesión
             session_start();
             $_SESSION["Usuario"] = trim($user, "'");
