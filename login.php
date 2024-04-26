@@ -20,6 +20,7 @@ if (isset($_COOKIE["PHPSESSID"])) {
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/cssglobal.css" >
         <link rel="stylesheet" type="text/css" href="css/csslogin.css" >
+        <link rel="logo-manzana" type="image/x-icon" href="/img/manzana_manzanita_roja.webp">
         <title>Inicio de sesión - SnakeSMX</title>
     </head>
     <body>

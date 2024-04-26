@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/cssjuego.css">
     <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
+    <link rel="logo-manzana" type="image/x-icon" href="/img/manzana_manzanita_roja.webp">
     <title>JUEGO</title>
 </head>
 <body>

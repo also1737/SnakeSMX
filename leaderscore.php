@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/cssliderscore.css">
     <link rel="stylesheet" type="text/css" href="css/cssglobal.css" >
+    <link rel="icon" type="image/x-icon" href="/img/manzana_manzanita_roja.webp">
 </head>
 <body>
     <nav>
