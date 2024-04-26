@@ -54,4 +54,20 @@ th, td {
   padding: 10px 5px;
 }
 
-tr:nth-child(even) {background-color: #bbb5b593;}
+tr:nth-child(even) {background-color: #ccc;}
+
+#pag {
+  display: inline-block;
+  width: 15%;
+  margin: 0px;
+}
+
+input[type=submit] {
+  width: 20px;
+  height: 20px;
+  border-style: none;
+  background-color: #5D9B2E;
+  color: #fff;
+  font-weight: 900;
+  border-radius: 5px;
+}

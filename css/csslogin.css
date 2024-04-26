@@ -13,6 +13,14 @@ p {
     font-weight: bold;
 }
 
+#error {
+    width: 100%;
+    margin-bottom: 0px;
+    color: #ff4444;
+    font-weight: 100;
+    font-size: 0.7em;
+}
+
 form {
     background-color: #ccc;
     color: #000;
