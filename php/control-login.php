@@ -6,8 +6,8 @@ $usuario = "proyecto";
 $password = "Alumne1234!";
 
 function login_end(){
-    echo "Usuario o contraseña incorrecto";
-    die();
+    $error = "Usuario o contraseña incorrecto";
+    header("Location: ../login.php?error=$error");
 }
 
 //variables que usaremos

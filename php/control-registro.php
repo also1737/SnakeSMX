@@ -6,12 +6,12 @@ $usuario = "proyecto";
 $password = "Alumne1234!";
 
 function error_user(){
-    echo "El usuario ya existe";
-    die();
+    $error = "El usuario ya existe";
+    header("Location: ../registro.php?error=$error");
 }
 function error_pass(){
-    echo "Las contraseñas no coinciden";
-    die();
+    $error = "Las contraseñas no coinciden";
+    header("Location: ../registro.php?error=$error");
 }
 
 
