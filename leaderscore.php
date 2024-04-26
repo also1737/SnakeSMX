@@ -48,6 +48,22 @@
     </div>
     <main>
         <?php include "php/filas-leaderboard.php"; ?>
+          <tr>
+            <td colspan='6'>
+              <form action='leaderscore.php' method='POST'>
+                <input type='hidden' name='valor' value='<?php echo $offset; ?>'>
+                <input type='submit' name='atrás' value='<'/>
+                <p id="pag">Página <?php echo $pag; ?></p>
+                <input type='submit' name='adelante' value='>'/>
+              </form>
+            </td>
+          </tr>
+        </table>
     </main>
+    <script>
+        var x = document.getElementsByTagName("tr");
+        x[x.length-1].style.backgroundColor = "#BFE4A2";
+        x[x.length-1].style.borderTop = "solid 1px #000"
+    </script>
 </body>
 </html>

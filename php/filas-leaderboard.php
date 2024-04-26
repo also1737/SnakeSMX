@@ -5,10 +5,33 @@
     $usuario = "proyecto";
     $password = "Alumne1234!";
     
+    $offset = 0;
+
     $conn = new mysqli($servidor, $usuario, $password, $base_datos);
-    
+
+    //con esta consulta vemos la cantidad de líneas que hay en la tabla
+    $consulta = "SELECT COUNT(IDPartida) FROM Partida_1J";
+
+    $count = $conn->query($consulta, MYSQLI_USE_RESULT);
+
+    $count = $count->fetch_array(MYSQLI_NUM)[0];
+
+    if (isset($_POST["valor"])) {
+        $offset = (int) $_POST["valor"];
+    }
+
+    if (isset($_POST["adelante"]) && $count - $offset >= 10) {
+        $offset = $offset + 10;
+    }
+
+    if (isset($_POST["atrás"]) && $offset != 0) {
+        $offset = $offset - 10;
+    }
+
+    $pag = $offset / 10 + 1;
+
     //con esta consulta recuperamos las 10 partidas con más puntosde todos los usuarios, con el INNER JOIN mostramos el nombre del mapa en vez de su ID
-    $consulta = "SELECT Partida_1J.Puntos, Partida_1J.Usuario, Mapas.NombreMapa, Partida_1J.Fecha, Partida_1J.Dificultad FROM Partida_1J INNER JOIN Mapas ON Partida_1J.IDMapa=Mapas.IDMapa ORDER BY Puntos DESC LIMIT 10";
+    $consulta = "SELECT Partida_1J.Puntos, Partida_1J.Usuario, Mapas.NombreMapa, Partida_1J.Fecha, Partida_1J.Dificultad FROM Partida_1J INNER JOIN Mapas ON Partida_1J.IDMapa=Mapas.IDMapa ORDER BY Puntos DESC LIMIT $offset, 10";
     
     //realizamos la consulta y guardamos el resultado
     $resultado = $conn->query($consulta, MYSQLI_USE_RESULT);
@@ -28,7 +51,7 @@
     $len = 0;
 
     //puesto de la puntuación en cuestión
-    $puesto = 1;
+    $puesto = 1 + $offset;
 
     //este bucle se ejecuta tantas veces como filas haya devuelto la consulta
     //guardamos una fila en la variable $datos cada iteración
@@ -56,9 +79,19 @@
         echo "<tr><th>$puesto</th><td> </td><td> </td><td> </td><td> </td><td> </td></tr>";
         $puesto++;
     }
-    
+
+
+    /*echo "<tr><td colspan='6'>
+          <form action='leaderscore.php' method='POST'>
+              <input type='hidden' name='valor' value='$offset'>
+              <input type='submit' name='atrás' value='<'/>
+              <span>Página $pag</span>
+              <input type='submit' name='adelante' value='>'/>
+          </form>
+          </td></tr>";
+
     //cerramos el html de la tabla
-    echo "</table>";
+    echo "</table>";*/
 
 
 
