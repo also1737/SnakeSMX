@@ -70,9 +70,9 @@
                         <label for="old_passwd">Contraseña actual:</label>
                         <input type="password" name="old_passwd" required><br>
                         <label for="old_passwd">Contraseña nueva:</label>
-                        <input type="password" name="new_passwd" required><br>
+                        <input type="password" name="new_passwd" minlength="8" required><br>
                         <label for="old_passwd">Confirmar Contraseña:</label>
-                        <input type="password" name="repeat_passwd" required><br>
+                        <input type="password" name="repeat_passwd" minlength="8" required><br>
                         <button type="submit">Confirmar</button>
                     </form>
                 </div>
