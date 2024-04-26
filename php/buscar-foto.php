@@ -1,7 +1,7 @@
 <?php
 
 // si es estúpido pero funciona no es estúpido
-$dir = "/var/www/SnakeSMX/fotos";
+$dir = "./fotos";
 
 $archivos = scandir($dir);
 $patron = "/$_SESSION[Usuario]/";
