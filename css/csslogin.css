@@ -15,10 +15,10 @@ p {
 
 #error {
     width: 100%;
-    margin-bottom: 0px;
+    margin: 0px;
     color: #ff4444;
     font-weight: 100;
-    font-size: 0.7em;
+    font-size: 0.9em;
 }
 
 form {

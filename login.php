@@ -40,12 +40,12 @@ if (isset($_COOKIE["PHPSESSID"])) {
         <main>
             <h2>SNAKESMX</h2>
             <form action="php/control-login.php" method="POST">
-                <p>INICIAR SESIÓN</p> 
+                <p>INICIAR SESIÓN</p>
+                <p id="error"><?php if(isset($_GET["error"])) { echo $_GET["error"]; } else { echo " ";}?></p>
                 <label for="usuario" >Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>
                 <label for="contraseña" >Contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" minlength="8" required>
-                <p id="error"><?php if(isset($_GET["error"])) { echo $_GET["error"]; } else { echo " ";}?></p>
                 <a href="registro.php">Crea una cuenta</a>
                 <button type="submit">Acceder</button>
             </form>

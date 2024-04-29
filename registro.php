@@ -34,6 +34,7 @@
             <h2>SNAKESMX</h2>
             <form action="php/control-registro.php" method="POST">
                 <p>REGISTRARSE</p>
+                <p id="error"><?php if(isset($_GET["error"])) { echo $_GET["error"]; } else { echo " ";}?></p>
                 <label for="usuario" >Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>
                 <label for="contraseña" >Contraseña:</label>
