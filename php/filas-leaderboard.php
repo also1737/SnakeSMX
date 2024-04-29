@@ -20,8 +20,18 @@
         $offset = (int) $_POST["valor"];
     }
 
+    if (isset($_POST["fin"]) && $count - $offset >= 10) {
+        while($count - $offset >= 10){
+            $offset = $offset + 10;
+        }
+    }
+
     if (isset($_POST["adelante"]) && $count - $offset >= 10) {
         $offset = $offset + 10;
+    }
+
+    if (isset($_POST["principio"]) && $offset != 0) {
+        $offset = 0;
     }
 
     if (isset($_POST["atrás"]) && $offset != 0) {
@@ -41,7 +51,7 @@
             <tr>
                 <th> </th>
                 <th>Puntos</th>
-                <th>Usuario</th>
+                <th colspan='2'>Usuario</th>
                 <th>Mapa</th>
                 <th>Fecha</th>
                 <th>Dificultad</th>
@@ -62,7 +72,10 @@
             <tr>
                 <th>'.$puesto.'</th>
                 <td>'.$datos["Puntos"].'</td>
-                <td>'.$datos["Usuario"].'</td>
+                <td>'; 
+                include "php/fotos-leaderboard.php"; 
+                echo 
+                '</td><td class="usuario">'.$datos["Usuario"].'</td>
                 <td>'.$datos["NombreMapa"].'</td>
                 <td>'.$datos["Fecha"].'</td>
                 <td>'.$datos["Dificultad"].'</td>
@@ -76,7 +89,7 @@
 
     //aquí imprimimos las filas que faltan si la consulta devuelve menos de 10 filas, para esto usamos $len
     for ($i = 0; $i < 10 - $len; ++$i) {
-        echo "<tr><th>$puesto</th><td> </td><td> </td><td> </td><td> </td><td> </td></tr>";
+        echo "<tr><th>$puesto</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>";
         $puesto++;
     }
 

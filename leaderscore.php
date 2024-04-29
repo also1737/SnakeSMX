@@ -35,35 +35,41 @@
     <div class="grid">
         <div class="tercercubo">
             <h3><?php echo $tercero; ?></h3>
-            <p>3º</p>
+            <h3>3º</h3>
         </div>
         <div class="primercubo">
             <h1><?php echo $primero; ?></h1>
-            <p>1º</p>
+            <h1>1º</h1>
         </div>
         <div class="segundocubo">
             <h2><?php echo $segundo; ?></h2>
-            <p>2º</p>
+            <h2>2º</h2>
         </div>
     </div>
     <main>
         <?php include "php/filas-leaderboard.php"; ?>
           <tr>
-            <td colspan='6'>
+            <td colspan='7'>
               <form action='leaderscore.php' method='POST'>
                 <input type='hidden' name='valor' value='<?php echo $offset; ?>'>
+                <input type='submit' name='principio' value='<<'/>
                 <input type='submit' name='atrás' value='<'/>
                 <p id="pag">Página <?php echo $pag; ?></p>
                 <input type='submit' name='adelante' value='>'/>
+                <input type='submit' name='fin' value='>>'/>
               </form>
             </td>
           </tr>
         </table>
     </main>
     <script>
+        //script que cambia el estilo de la última fila
+
         var x = document.getElementsByTagName("tr");
-        x[x.length-1].style.backgroundColor = "#BFE4A2";
-        x[x.length-1].style.borderTop = "solid 1px #000"
+
+        x[x.length-1].style.backgroundColor = "#BFE4A2"; //color verde claro
+        x[x.length-1].style.borderTop = "solid 1px #000"; //línia negra arriba
+        x[x.length-1].style.height = "20px";
     </script>
 </body>
 </html>

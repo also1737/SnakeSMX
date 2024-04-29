@@ -40,18 +40,31 @@ h1 {
 }
 table {
   border-collapse: collapse;
+  vertical-align: middle;
   border: 1px solid;
   width: 50%;
   margin: auto;
   padding: 0px;
 }
 
+.usuario {
+  text-align: left;
+}
+
 th, td {
   text-align: center;
+  height: 30px;
   margin: 0px;
   border-width: 0px;
   border-style: none;
   padding: 10px 5px;
+}
+
+td img {
+  float: right;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 
 tr:nth-child(even) {background-color: #ccc;}
