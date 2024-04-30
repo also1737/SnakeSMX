@@ -1,3 +1,9 @@
+<?php
+ include "php/check-sesion.php";
+ if (!isset($_COOKIE["PHPSESSID"])){
+    header('Location: login.php');
+ }
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head> 
@@ -20,12 +26,14 @@
         </script> 
         <meta charset="UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/img/manzana_manzanita_roja.webp" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Znamenny+Musical+Notation&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/cssuserconfig.css">
         <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
+        <link rel="logo-manzana" type="image/x-icon" href="/img/manzana_manzanita_roja.webp">
         <title>Ajustes de usuario - SnakeSMX</title>
     </head>
     <body>
@@ -35,10 +43,10 @@
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="userconfig.html">Configuración</a></li>
-                    <li><a href="leaderscore.html">Leaderboard</a></li>
-                    <li><a href="login.html" class="boton_inicio">Iniciar Sesión</a></li>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="userconfig.php">Configuración</a></li>
+                    <li><a href="leaderscore.php">Leaderboard</a></li>
+                    <li><a href="login.php" class="boton_inicio"><?php echo $boton ?>Sesión</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,25 +56,25 @@
             <div class="grid">
                 <div>
                     <h4>Nombre de usuario</h4>
-                    <p id="usr">Pepe</p>
+                    <p id="usr"><?php echo $_SESSION["Usuario"]; ?></p>
                     <button id="selector" onclick="mostrar_esconder()">Cambiar</button>
                     <div id="esconder">
-                        <form method="post">
+                        <form action="php/cambio-user.php" method="post">
                             <p>Introduce tu nuevo nombre de usuario</p>
-                            <input type="text" id="nuevo_user" name="nuevo_user"><br>
+                            <input type="text" id="nuevo_user" name="nuevo_user" required><br>
                             <button type="submit">Cambiar</button>
                         </form>
                     </div>
                 </div>
                 <div>
                 <h4>Cambiar contraseña</h4>
-                    <form method="POST">
+                    <form action="php/cambiar-contraseña.php" method="POST">
                         <label for="old_passwd">Contraseña actual:</label>
-                        <input type="password" name="old_passwd"><br>
+                        <input type="password" name="old_passwd" required><br>
                         <label for="old_passwd">Contraseña nueva:</label>
-                        <input type="password" name="new_passwd"><br>
+                        <input type="password" name="new_passwd" minlength="8" required><br>
                         <label for="old_passwd">Confirmar Contraseña:</label>
-                        <input type="password" new="repeat_passwd"><br>
+                        <input type="password" name="repeat_passwd" minlength="8" required><br>
                         <button type="submit">Confirmar</button>
                     </form>
                 </div>
@@ -75,17 +83,20 @@
             <div class="grid">
                 <div>
                     <h4 class="izquierda">Avatar:</h4>
-                    <img id="foto" src="img/fotoperfil.png" alt="Foto de perfil" >
-                    <form method="post">
+                    <?php
+                        include "php/buscar-foto.php";
+                    ?>
+                    
+                    <form action="php/fotoperfil.php" method="post" enctype="multipart/form-data">
                         <label for="FotoPerfil">Cambiar Avatar:</label>
-                        <input type="file" id="FotoPerfil" name="FotoPerfil" accept="image/*">
+                        <input type="file" id="FotoPerfil" name="FotoPerfil">
                         <button type="submit">Subir</button>
                     </form>
                 </div>
                 <div>
                     <h4>Color de la serpiente</h4>
-                    <form method="GET">
-                        <input type="color" id="ColorSerpiente" name="color" value="#00ff00">
+                    <form action="php/color_serpiente.php" method="POST">
+                        <input type="color" id="ColorSerpiente" name="ColorSerpiente" value="#00ff00">
                         <button type="submit">Guardar</button>
                     </form>
                 </div>
