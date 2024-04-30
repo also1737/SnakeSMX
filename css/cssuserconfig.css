@@ -85,3 +85,13 @@ button {
     height: 25px;
     border-radius: 3px;
 }
+.cambiar_user {
+    background-color: #f4f4f4;
+    color: #ffffff;
+    display: block;
+    border-style: none;
+    margin-top: 17px;
+    width: 100px;
+    height: 25px;
+    border-radius: 3px;
+}
