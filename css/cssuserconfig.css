@@ -77,7 +77,7 @@ input[type=color] {
 
 button {
     background-color: #f4f4f4;
-    color: #000000;
+    text-decoration-color: #000000;
     display: block;
     border-style: none;
     margin-top: 17px;
