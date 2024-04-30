@@ -85,6 +85,7 @@
                     <h4 class="izquierda">Avatar:</h4>
                     <?php
                         include "php/buscar-foto.php";
+                        include "php/color_serpiente.php";
                     ?>
                     
                     <form action="php/fotoperfil.php" method="post" enctype="multipart/form-data">
@@ -96,7 +97,7 @@
                 <div>
                     <h4>Color de la serpiente</h4>
                     <form action="php/color_serpiente.php" method="POST">
-                        <input type="color" id="ColorSerpiente" name="ColorSerpiente" value="#00ff00">
+                        <input type="color" id="ColorSerpiente" name="ColorSerpiente" value="<?php echo $color_serp;?>">
                         <button type="submit">Guardar</button>
                     </form>
                 </div>
