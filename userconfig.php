@@ -13,12 +13,13 @@
             function mostrar_esconder() {
                 if (!abierto) {
                     document.getElementById("esconder").style = "display: block;";
-                    document.getElementById("selector").style = "background-color: #9b2e2e;";
+                    document.getElementById("selector").style = "background-color: #c01c28;";
+                    //document.getElementById("selector").style.color "white";
                     document.getElementById("selector").innerHTML = "Cerrar";
                     abierto = true;
                 } else {
                     document.getElementById("esconder").style = "display: none;";
-                    document.getElementById("selector").style = "background-color: #5d9b2e;";
+                    document.getElementById("selector").style = "background-color: #f4f4f4;";
                     document.getElementById("selector").innerHTML = "Cambiar";
                     abierto = false;
                 };
@@ -85,6 +86,7 @@
                     <h4 class="izquierda">Avatar:</h4>
                     <?php
                         include "php/buscar-foto.php";
+                        include "php/color_serpiente.php";
                     ?>
                     
                     <form action="php/fotoperfil.php" method="post" enctype="multipart/form-data">
@@ -96,7 +98,7 @@
                 <div>
                     <h4>Color de la serpiente</h4>
                     <form action="php/color_serpiente.php" method="POST">
-                        <input type="color" id="ColorSerpiente" name="ColorSerpiente" value="#00ff00">
+                        <input type="color" id="ColorSerpiente" name="ColorSerpiente" value="<?php echo $color_serp;?>">
                         <button type="submit">Guardar</button>
                     </form>
                 </div>

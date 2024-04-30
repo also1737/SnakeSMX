@@ -17,8 +17,9 @@ $user = $pass = $consulta = $resultado = $fila = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     //cogemos los valores que ha introducido el usuario y los ponemos entre comillas
-    $user = "'" . $_POST["usuario"] . "'";
+    $user = $_POST["usuario"];
     $pass = $_POST["contraseña"];
+   
 
     // Establecemos conexión
     $conn = new mysqli($servidor, $usuario, $password, $base_datos);
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     //Con esta consulta buscamos si el usuario ($user) está en la base de datos
-    $consulta = "SELECT Usuario, Password FROM Usuarios WHERE Usuario = $user";
+    $consulta = "SELECT Usuario, Password FROM Usuarios WHERE Usuario = '$user'";
 
     //Realizamos la consulta y la guardamos en $resultado
     $resultado = $conn->query($consulta, MYSQLI_USE_RESULT);
@@ -37,35 +38,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //convertimos la consulta en un array para poder leerla
     $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
 
-    // Cerramos conexión con la base de datos
-    mysqli_close($conn);
-
     //comprobamos si el array está vacío (el usuario no existe)
     if (empty($resultado)) {
         //lanzamos error
         login_end();
     }
     else { //existe
+
+        var_dump($resultado[0]['Password']);
         
-        //Sacamos la contraseña del usuario del array
-        $fila = $resultado[0];
-        $contraseña = $fila["Password"];
-        
-        //comprobamos que es igual a la contraseña de la BD
-        if ($contraseña === $pass) {
+        //$resultado = password_hash('contrasena', PASSWORD_DEFAULT);
+
+        $resultado = $resultado[0]["Password"];
+
+        if(password_verify($pass, $resultado)){
+        echo "AAAAA";
+            
             //Abrimos sesión
             session_start();
             $_SESSION["Usuario"] = trim($user, "'");
-            $_SESSION["Password"] = $pass;
             $_SESSION["foto"] = "";
 
             header('Location: ../index.php');
 
         }
         else {
+            echo "cagoendios";
             //lanzamos error
             login_end();
         }
     }
     
+    // Cerramos conexión con la base de datos
+    mysqli_close($conn);
 }

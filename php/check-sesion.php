@@ -1,8 +1,8 @@
 <?php
 //print_r($_COOKIE);
 
-//comprobamos si se ha creado la cookie PHPSESSID (el usuario ha iniciado sesión)
-if (isset($_COOKIE["PHPSESSID"])) {
+//comprobamos si se ha creado la cookie PHPSESSID (el usuario ha iniciado sesión) y si no hay sesión ya abierta
+if (isset($_COOKIE["PHPSESSID"]) && session_id() == NULL) {
     
     //abrimos la sesión
     session_start();
@@ -10,7 +10,6 @@ if (isset($_COOKIE["PHPSESSID"])) {
     $boton = "Cerrar ";
 
 } else  {
-    
     //hacemos que el botón diga "Iniciar sesión"
     $boton = "Iniciar ";
 }
