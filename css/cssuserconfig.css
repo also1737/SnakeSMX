@@ -22,7 +22,7 @@ h2 {
 }
 
 #selector {
-    background-color: #5d9b2e;
+    background-color: #f4f4f4;
 }
 
 #esconder {
@@ -87,7 +87,7 @@ button {
 }
 .cambiar_user {
     background-color: #f4f4f4;
-    color: #ffffff;
+    color: #000;
     display: block;
     border-style: none;
     margin-top: 17px;

@@ -13,12 +13,13 @@
             function mostrar_esconder() {
                 if (!abierto) {
                     document.getElementById("esconder").style = "display: block;";
-                    document.getElementById("selector").style = "background-color: #9b2e2e;";
+                    document.getElementById("selector").style = "background-color: #c01c28;";
+                    //document.getElementById("selector").style.color "white";
                     document.getElementById("selector").innerHTML = "Cerrar";
                     abierto = true;
                 } else {
                     document.getElementById("esconder").style = "display: none;";
-                    document.getElementById("selector").style = "background-color: #5d9b2e;";
+                    document.getElementById("selector").style = "background-color: #f4f4f4;";
                     document.getElementById("selector").innerHTML = "Cambiar";
                     abierto = false;
                 };
