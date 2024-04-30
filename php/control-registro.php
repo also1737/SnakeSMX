@@ -6,12 +6,12 @@ $usuario = "proyecto";
 $password = "Alumne1234!";
 
 function error_user(){
-    echo "El usuario ya existe";
-    die();
+    $error = "El usuario ya existe";
+    header("Location: ../registro.php?error=$error");
 }
 function error_pass(){
-    echo "Las contraseñas no coinciden";
-    die();
+    $error = "Las contraseñas no coinciden";
+    header("Location: ../registro.php?error=$error");
 }
 
 
@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = "'" . $_POST["usuario"] . "'";
     $pass1 = "'" . $_POST["contraseña1"] . "'";
     $pass2 = "'" . $_POST["contraseña2"] . "'";
+    
     // Comprobamos la longitud del nombre de usuario
     if (strlen($_POST["usuario"]) > 20) {
         // Usuario no permitido
