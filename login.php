@@ -1,5 +1,5 @@
 <?php
- include "php/check-sesion.php";
+ require "php/check-sesion.php";
 
 //si ya había una sesión abierta, la cerramos y destruimos cookie
 if (isset($_COOKIE["PHPSESSID"])) {
@@ -40,14 +40,14 @@ if (isset($_COOKIE["PHPSESSID"])) {
         <main>
             <h2>SNAKESMX</h2>
             <form action="php/control-login.php" method="POST">
-                <p>INICIAR SESIÓN</p> 
+                <p>INICIAR SESIÓN</p>
+                <p id="error"><?php if(isset($_GET["error"])) { echo $_GET["error"]; } else { echo " ";}?></p>
                 <label for="usuario" >Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>
                 <label for="contraseña" >Contraseña:</label>
                 <input type="password" id="contraseña" name="contraseña" minlength="8" required>
                 <a href="registro.php">Crea una cuenta</a>
                 <button type="submit">Acceder</button>
-                <?php if(isset($mensaje_error)) { echo $mensaje_error; } ?>
             </form>
         </main>
     </body>

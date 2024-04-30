@@ -51,7 +51,6 @@
         //código que colorea las tres líneas de la tabla global
 
         var x = document.getElementsByTagName("tr");
-        console.log(x);
 
         x[1].style.backgroundColor = "#ECDE64"; //primera línea = oro
         x[2].style.backgroundColor = "#D9D9D9"; //segunda línea = plata
