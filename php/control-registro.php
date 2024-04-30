@@ -9,6 +9,12 @@ function error_user(){
     $error = "El usuario ya existe";
     header("Location: ../registro.php?error=$error");
 }
+
+function error_user_lenght(){
+    $error = "Usuario no permitido";
+    header("Location: ../registro.php?error=$error");
+}
+
 function error_pass(){
     $error = "Las contraseñas no coinciden";
     header("Location: ../registro.php?error=$error");
@@ -28,8 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     // Comprobamos la longitud del nombre de usuario
     if (strlen($_POST["usuario"]) > 20) {
-        // Usuario no permitido
-        echo "Usuario no permitido";
+        error_user_lenght();
     }
 
     // Establecemos conexión
