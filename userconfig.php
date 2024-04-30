@@ -62,7 +62,7 @@
                         <form action="php/cambio-user.php" method="post">
                             <p>Introduce tu nuevo nombre de usuario</p>
                             <input type="text" id="nuevo_user" name="nuevo_user" required><br>
-                            <button type="submit">Cambiar</button>
+                            <button class="cambiar_user" type="submit">Cambiar</button>
                         </form>
                     </div>
                 </div>
