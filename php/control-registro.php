@@ -22,9 +22,9 @@ $user = $pass1 = $pass2 = $consulta = $resultado = $fila = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     //cogemos los valores que ha introducido el usuario y los ponemos entre comillas
-    $user = "'" . $_POST["usuario"] . "'";
-    $pass1 = "'" . $_POST["contraseña1"] . "'";
-    $pass2 = "'" . $_POST["contraseña2"] . "'";
+    $user = $_POST["usuario"];
+    $pass1 = $_POST["contraseña1"];
+    $pass2 = $_POST["contraseña2"];
 
     // Establecemos conexión
     $conn = new mysqli($servidor, $usuario, $password, $base_datos);
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     //Con esta consulta buscamos si el usuario ($user) está en la base de datos
-    $consulta = "SELECT Usuario, Password FROM Usuarios WHERE Usuario = $user";
+    $consulta = "SELECT Usuario, Password FROM Usuarios WHERE Usuario = '$user'";
 
     //Realizamos la consulta y la guardamos en $resultado
     $resultado = $conn->query($consulta, MYSQLI_USE_RESULT);
@@ -63,8 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 die("<p>Connection failed: $conn->connect_error</p>");
             }
 
+            //encriptamos contraseña
+            $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
+            
             //añadimos el usuario y la contraseña a la BD
-            $consulta = "INSERT INTO Usuarios (Usuario, Password) VALUES ($user, $pass2)";
+            //$consulta = "INSERT INTO Usuarios (Usuario, Password) VALUES ('$user', '".password_hash($pass1, PASSWORD_DEFAULT)."')";
+            $consulta = "INSERT INTO Usuarios (Usuario, Password) VALUES ('$user', '$pass_hash')";
 
             //realizamos consulta
             $conn->query($consulta);
@@ -73,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             mysqli_close($conn);
 
             //redirigimos a inicio de sesión
-            header('Location: ../login.php');
+            //header('Location: ../login.php');
 
         } else {
 
