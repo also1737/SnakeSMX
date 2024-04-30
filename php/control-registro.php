@@ -25,6 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = "'" . $_POST["usuario"] . "'";
     $pass1 = "'" . $_POST["contraseña1"] . "'";
     $pass2 = "'" . $_POST["contraseña2"] . "'";
+    // Comprobamos la longitud del nombre de usuario
+    if (strlen($_POST["usuario"]) > 20) {
+        // Usuario no permitido
+        echo "Usuario no permitido";
+    }
 
     // Establecemos conexión
     $conn = new mysqli($servidor, $usuario, $password, $base_datos);
@@ -65,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             //añadimos el usuario y la contraseña a la BD
             $consulta = "INSERT INTO Usuarios (Usuario, Password) VALUES ($user, $pass2)";
-
+         
             //realizamos consulta
             $conn->query($consulta);
 
