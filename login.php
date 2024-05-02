@@ -38,7 +38,7 @@ if (isset($_COOKIE["PHPSESSID"])) {
             </div>
         </nav>
         <main>
-            <h2>SNAKESMX</h2>
+            <h1>SNAKESMX</h1>
             <form action="php/control-login.php" method="POST">
                 <p>INICIAR SESIÓN</p>
                 <p id="error"><?php if(isset($_GET["error"])) { echo $_GET["error"]; } else { echo " ";}?></p>
