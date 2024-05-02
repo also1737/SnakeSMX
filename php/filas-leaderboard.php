@@ -26,7 +26,7 @@
         }
     }
 
-    if (isset($_POST["adelante"]) && $count - $offset >= 10) {
+    if (isset($_POST["adelante"]) && ($count - $offset) - 1 >= 10) {
         $offset = $offset + 10;
     }
 
@@ -92,20 +92,3 @@
         echo "<tr><th>$puesto</th><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td></tr>";
         $puesto++;
     }
-
-
-    /*echo "<tr><td colspan='6'>
-          <form action='leaderscore.php' method='POST'>
-              <input type='hidden' name='valor' value='$offset'>
-              <input type='submit' name='atrás' value='<'/>
-              <span>Página $pag</span>
-              <input type='submit' name='adelante' value='>'/>
-          </form>
-          </td></tr>";
-
-    //cerramos el html de la tabla
-    echo "</table>";*/
-
-
-
-//print_r($resultado);
