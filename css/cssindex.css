@@ -76,6 +76,9 @@ td {
 
 .pagina_seleccionada {
     background-color: #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
 }
+
 
 tr:nth-child(even) {background-color: #bbb5b593;}

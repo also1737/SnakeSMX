@@ -65,4 +65,6 @@ button {
 }
 .pagina_seleccionada {
     background-color: #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
 }
