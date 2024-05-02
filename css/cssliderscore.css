@@ -84,3 +84,6 @@ input[type=submit] {
   font-weight: 900;
   border-radius: 5px;
 }
+.pagina_seleccionada {
+  background-color: #ccc;
+}

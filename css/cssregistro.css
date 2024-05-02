@@ -56,3 +56,6 @@ button {
     height: 20px;
     margin-left: 60%;   
 }
+.pagina_seleccionada {
+    background-color: #ccc;
+}

@@ -63,3 +63,6 @@ button {
     text-decoration: underline;
     color: #000;
 }
+.pagina_seleccionada {
+    background-color: #ccc;
+}

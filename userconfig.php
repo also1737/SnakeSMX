@@ -45,7 +45,7 @@
             <div id="menu">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
-                    <li><a href="userconfig.php">Configuración</a></li>
+                    <li><a class="pagina_seleccionada" href="userconfig.php">Configuración</a></li>
                     <li><a href="leaderscore.php">Leaderboard</a></li>
                     <li><a href="login.php" class="boton_inicio"><?php echo $boton ?>Sesión</a></li>
                 </ul>

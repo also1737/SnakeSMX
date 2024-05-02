@@ -8,3 +8,6 @@
     justify-content: center;
     align-items: center;
 }
+.pagina_seleccionada {
+    background-color: #ccc;
+}

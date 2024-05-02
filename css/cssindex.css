@@ -74,4 +74,8 @@ td {
     height: 40px;
 }
 
+.pagina_seleccionada {
+    background-color: #ccc;
+}
+
 tr:nth-child(even) {background-color: #bbb5b593;}
