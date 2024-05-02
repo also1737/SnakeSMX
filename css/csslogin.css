@@ -53,4 +53,10 @@ button {
 
 .creacuenta {
     text-decoration: underline;
+    color: #000;
+}
+.pagina_seleccionada {
+    background-color: #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
 }

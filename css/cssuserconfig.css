@@ -95,3 +95,8 @@ button {
     height: 25px;
     border-radius: 3px;
 }
+.pagina_seleccionada {
+    background-color: #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
+}

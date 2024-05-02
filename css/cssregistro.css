@@ -56,3 +56,8 @@ button {
     height: 20px;
     margin-left: 60%;   
 }
+.pagina_seleccionada {
+    background-color: #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
