@@ -14,7 +14,6 @@
                 if (!abierto) {
                     document.getElementById("esconder").style = "display: block;";
                     document.getElementById("selector").style = "background-color: #c01c28;";
-                    //document.getElementById("selector").style.color "white";
                     document.getElementById("selector").innerHTML = "Cerrar";
                     abierto = true;
                 } else {
@@ -62,6 +61,7 @@
                     <div id="esconder">
                         <form action="php/cambio-user.php" method="post">
                             <p>Introduce tu nuevo nombre de usuario</p>
+                            <p id="error"><?php if (isset($_GET['erroruser'])) { echo $_GET['erroruser']; } else { echo ""; }?></p>
                             <input type="text" id="nuevo_user" name="nuevo_user" required><br>
                             <button class="cambiar_user" type="submit">Cambiar</button>
                         </form>
@@ -69,6 +69,7 @@
                 </div>
                 <div>
                 <h4>Cambiar contraseña</h4>
+                    <p id="error"><?php if (isset($_GET['errorpass'])) { echo $_GET['errorpass']; } else { echo ""; }?></p>
                     <form action="php/cambiar-contraseña.php" method="POST">
                         <label for="old_passwd">Contraseña actual:</label>
                         <input type="password" name="old_passwd" required><br>

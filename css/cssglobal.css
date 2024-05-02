@@ -55,6 +55,15 @@ nav div {
     max-height: 80px;
 }
 
+
+#error {
+    width: 100%;
+    margin: 0px;
+    color: #ff4444;
+    font-weight: 100;
+    font-size: 0.9em;
+}
+
 .boton_inicio {
     background-color: #cccccc;
     color: #000000;
