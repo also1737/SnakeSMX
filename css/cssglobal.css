@@ -34,6 +34,10 @@ nav {
     color: #000000;
 }
 
+nav div {
+    color: #000000;
+}
+
 #menu {
     order: 2; 
 }
