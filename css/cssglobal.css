@@ -30,8 +30,6 @@ nav {
     margin: 0px;
     margin-bottom: 20px;
     font-size: 1.1em;
-    text-decoration: none;
-    color: #000000;
 }
 
 #menu {
@@ -42,6 +40,11 @@ nav {
     display: inline;
     margin-right: 20px;
 }  
+
+#menu ul li a { 
+    text-decoration: none ;
+    color: #000;
+}
 
 #logo {
     max-width: 200px;
