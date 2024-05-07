@@ -6,16 +6,27 @@ class Cubo {
         this.y = y;
         this.tamano = tamano;
         this.tipo = tipo;
-
-        if (tipo==0) {
-            this.color = "#000";
-        } else {
-            this.color = "#0f0";
-        }
+        this.color = "";
 
     }
     
     dibujar() {
+
+        switch (this.tipo) {
+
+            case 0:
+                this.color = "#000";
+                break;
+            case 1:
+                this.color = "#0f0";
+                break;
+            case 2:
+                this.color = "#f00";
+                break;
+            default:
+                this.color = "#fff";
+        }
+
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.tamano, this.tamano);

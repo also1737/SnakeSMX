@@ -25,12 +25,6 @@ class Tablero {
 
             for (let j = 0; j < this.celdas[i].length; j++) {
 
-                tipo = 0;
-
-                if (x === 25 && y === 12) {
-                    tipo = 1;
-                }
-
                 this.celdas[i][j] = new Cubo(x*tamano,y*tamano,tamano,tipo);
                 y++;
 
