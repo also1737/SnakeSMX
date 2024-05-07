@@ -38,7 +38,6 @@
 
             actualizar(x) {
 
-
                 this.acc += this.gravedad;
                 
                 console.log(this.acc);
@@ -55,7 +54,7 @@
 
                 ctx.beginPath();
                 ctx.lineWidth = "3";
-                ctx.strokeStyle = this.color
+                ctx.strokeStyle = this.color;
                 ctx.rect(this.x, this.y, this.tamaño, this.tamaño);
                 ctx.stroke();
 
@@ -81,6 +80,12 @@
                     this.velX = -this.velX;
                     otroCubo.velX = -otroCubo.velX;
                 }
+
+                if (toca) {
+                    this.velX = this.velX * 0.80;
+                    otroCubo.velX = otroCubo.velX * 0.80;
+                }
+
                 return toca;
             }
 
@@ -128,18 +133,13 @@
         var x2 = w*0.75;
         var y2 = 120;
 
-        var c1 = new Cubo(x1,y1,15,"grey");
-        var c2 = new Cubo(x2,y2,50,"grey");
+        var c1 = new Cubo(x1,y1,25,"red");
+        var c2 = new Cubo(x2,y2,25,"blue");
 
         function bloque(){
 
-            if (c1.colisionCubo(c2)) {
-                c1.color = "red";
-                c2.color = "red";
-            } else {
-                c1.color = "white";
-                c2.color = "white";
-            }
+            c1.colisionCubo(c2)
+            
             
             ctx.clearRect(0,0,w,500);
             c1.actualizar(x1);
@@ -162,6 +162,10 @@
                 c1.velX = -10;
             }
 
+            if (key == "KeyS") {
+                c1.velX = 0;
+            }
+
             if (key == "KeyD") {
                 c1.velX = 10;
             }
@@ -172,6 +176,10 @@
 
             if (key == "ArrowLeft") {
                 c2.velX = -10;
+            }
+
+            if (key == "ArrowDown") {
+                c2.velX = 0;
             }
             
             if (key == "ArrowRight") {
