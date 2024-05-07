@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/cssjuego.css">
     <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
     <link rel="logo-manzana" type="image/x-icon" href="/img/manzana_manzanita_roja.webp">
-    <title>JUEGO</title>
+    <title>JUEGO - SnakeSMX</title>
 </head>
 <body>
     <nav>
@@ -30,7 +30,11 @@
                     <li><a href="login.php" class="boton_inicio"><?php echo $boton ?> Sesión</a></li>
             </ul>
         </div>
-    </nav>
-    <div class="juego">
-        <p>JUEGO</p>
-    </div>
+    </nav> 
+    <canvas id="juego" width="1350" height="650" ></canvas>
+    <script src="javascript/tablero.js"></script>
+    <script src="javascript/cubo.js"></script>
+    <script src="javascript/juego.js"></script>
+    
+</body>
+</html>
