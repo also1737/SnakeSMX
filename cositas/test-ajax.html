@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Test</title>
+    </head>
+    <script>
+
+        //usuario
+        function leer_usuario() {
+            let usuario = document.getElementsByName('usuario')[0].value;
+            return usuario;
+        }
+
+        function leer_puntos() {
+            let numero = document.getElementsByName('numero')[0].value;
+            return numero;
+        }
+
+        //sacamos la fecha actual
+        let d = new Date();
+        let año = String(d.getFullYear());
+        let mes = String(d.getMonth() + 1);
+        let dia = String(d.getDate());
+
+        //convertimos la fecha al formato que acepta mysql (YYYY-MM-DD)
+        let Fecha = año + "-" + mes + "-" + dia;
+
+        //realizamos la petición a php
+        function subir() {
+
+            usuario = leer_usuario();
+            numero = leer_puntos();
+            console.log(usuario);
+            console.log(numero);
+            
+            //creamos la petición
+            var xhttp = new XMLHttpRequest();
+
+            //esto se ejecuta cuando PHP responde a la petición
+            xhttp.onreadystatechange = function() {
+
+                //si la petición se realiza correctamente, mostramos el contenido devuelto por el php
+                if (this.readyState == 4 && this.status == 200) {
+
+                    //la variable 'this.responseText' contiene los datos que ha devuelto el PHP
+                    document.getElementById("tabla").innerHTML = this.responseText;
+
+                }
+            }
+
+        //hacemos una petición post al archivo php pasando todas las variables
+        xhttp.open("POST", "test-ajax.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        //variables post que pasamos
+        xhttp.send("puntos="+numero+"&usuario="+usuario+"&mapa=2&fecha="+Fecha+"&dif=2");
+
+        };
+    </script>
+    <body>
+        <p>hola</p>
+        <form name="user">
+            <label for="usuario">Usuario</label>
+            <input type="text" name="usuario" id="usuario">
+            <input type="range" name="numero" min="1" max="1000" value="500">
+        </form onaction="usuario()">
+        <div id="numero"></div>
+        <button onclick="subir()">Subir</button>
+        <div id="tabla"></div>
+    </body>
+</html>
