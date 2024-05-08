@@ -32,9 +32,9 @@
         </div>
     </nav> 
     <canvas id="juego" width="1350" height="650" ></canvas>
-    <script src="javascript/manzana.js"></script>
     <script src="javascript/tablero.js"></script>
     <script src="javascript/cubo.js"></script>
+    <script src="javascript/manzana.js"></script>
     <script src="javascript/rafa.js"></script>
     <script src="javascript/juego.js"></script>
     
