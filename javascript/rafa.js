@@ -22,6 +22,13 @@ class Serpiente {
 
     }
 
+    mover(x, y) {
+
+        rafa.bloques[0]["x"] += x;
+        rafa.bloques[0]["y"] += y;
+
+    }
+
     dibujar(tablero) {
 
         let x = 0;
