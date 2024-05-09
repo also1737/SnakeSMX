@@ -14,14 +14,13 @@ rafa.empezar();
 
 var bucle = 0;
 
-window.clearInterval(bucle);
 bucle = window.setInterval(bucleJuego, 100);
 
 function bucleJuego() {
 
-    manzana.mover(tablerito.numeroFilas,tablerito.numeroColumnas,tamano);
+    //manzana.mover(tablerito.numeroFilas,tablerito.numeroColumnas);
     manzana.anadirArray(tablerito.celdas);
-    rafa.mover(movimientoX, movimientoY);
+    rafa.mover(movimientoX, movimientoY,tablerito.celdas);
     rafa.dibujar(tablerito.celdas);
     tablerito.dibujar();
 
@@ -32,8 +31,6 @@ console.log(rafa.bloques);
 window.addEventListener("keydown", function(event){ teclasPresionadas(event.code); });
 
 function teclasPresionadas(tecla) {
-
-    console.log(tecla);
 
     switch (tecla) {
 
@@ -58,7 +55,5 @@ function teclasPresionadas(tecla) {
             break;
 
     }
-
-    console.log(movimientoX, movimientoY);
 
 }
