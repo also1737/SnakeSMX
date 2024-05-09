@@ -17,7 +17,7 @@ var x = 15
 
 function bucleJuego() {
 
-    //rafa.bloques[0]["x"] = x;
+    rafa.bloques[0]["x"] = x;
     manzana.anadirArray(tablerito.celdas);
     rafa.dibujar(tablerito.celdas);
     tablerito.dibujar();
@@ -26,7 +26,7 @@ function bucleJuego() {
 
 }
 
-var bucle = window.setInterval(bucleJuego, 15);
+var bucle = window.setInterval(bucleJuego, 100);
 
 console.log(rafa.bloques);
 
