@@ -27,7 +27,6 @@
                     <li><a href="userconfig.php">Configuración</a></li>
                     <li><a href="leaderscore.php">Leaderboard</a></li>
                     <li><a href="login.php" id="boton_inicio"><?php echo $boton ?>Sesión</a></li>
-                    <script src="javascript/boton_iniciar_sesión.js"></script>
             </ul>
         </div>
     </nav>
@@ -57,6 +56,22 @@
         x[2].style.backgroundColor = "#D9D9D9"; //segunda línea = plata
         x[3].style.backgroundColor = "#E7C369"; //tercera línea = bronce
 
+    </script>
+    <script>
+
+    let boton = document.getElementById("boton_inicio");
+
+        if (boton.innerHTML == "Iniciar Sesión") {
+
+            boton.style.backgroundColor = "#5d9b2e";
+            boton.style.color = "#fff";
+
+        } else if (boton.innerHTML == "Cerrar Sesión") { 
+        
+            boton.style.backgroundColor =  "#cccccc";
+            boton.style.color = "#000";
+
+        }
     </script>
 </body>
 </html>
