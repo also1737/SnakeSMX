@@ -27,7 +27,8 @@
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="userconfig.php">Configuración</a></li>
                     <li><a href="leaderscore.php">Leaderboard</a></li>
-                    <li><a href="login.php" class="boton_inicio"><?php echo $boton ?> Sesión</a></li>
+                    <li><a href="login.php" id="boton_inicio"><?php echo $boton ?> Sesión</a></li>
+                    <script src="javascript/boton_iniciar_sesión.js"></script>
             </ul>
         </div>
     </nav> 

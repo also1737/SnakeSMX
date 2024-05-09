@@ -64,7 +64,7 @@ nav div {
     font-size: 0.9em;
 }
 
-.boton_inicio {
+#boton_inicio {
     background-color: #cccccc;
     color: #000000;
     padding: 8px 15px;

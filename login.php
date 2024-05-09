@@ -33,7 +33,8 @@ if (isset($_COOKIE["PHPSESSID"])) {
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="userconfig.php">Configuración</a></li>
                     <li><a href="leaderscore.php">Leaderboard</a></li>
-                    <li><a class="pagina_seleccionada" href="login.php" class="boton_inicio">Iniciar Sesión</a></li>
+                    <li><a class="pagina_seleccionada" href="login.php" id="boton_inicio">Iniciar Sesión</a></li>
+                    <script src="javascript/boton_iniciar_sesión.js"></script>
                 </ul>
             </div>
         </nav>
