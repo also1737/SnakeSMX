@@ -106,5 +106,21 @@
                 </div>
             </div>
         </main>
+        <script>
+
+let boton = document.getElementById("boton_inicio");
+
+    if (boton.innerHTML == "Iniciar Sesión") {
+
+        boton.style.backgroundColor = "#5d9b2e";
+        boton.style.color = "#fff";
+
+    } else if (boton.innerHTML == "Cerrar Sesión") { 
+    
+        boton.style.backgroundColor =  "#cccccc";
+        boton.style.color = "#000";
+
+    }
+</script>
     </body>
 </html>

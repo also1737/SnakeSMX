@@ -28,7 +28,6 @@
                     <li><a href="userconfig.php">Configuración</a></li>
                     <li><a href="leaderscore.php">Leaderboard</a></li>
                     <li><a href="login.php" id="boton_inicio"><?php echo $boton ?> Sesión</a></li>
-                    <script src="javascript/boton_iniciar_sesión.js"></script>
             </ul>
         </div>
     </nav> 
@@ -38,6 +37,21 @@
     <script src="javascript/manzana.js"></script>
     <script src="javascript/rafa.js"></script>
     <script src="javascript/juego.js"></script>
+    <script>
+
+let boton = document.getElementById("boton_inicio");
+
+    if (boton.innerHTML == "Iniciar Sesión") {
+
+        boton.style.backgroundColor = "#5d9b2e";
+        boton.style.color = "#fff";
+
+    } else if (boton.innerHTML == "Cerrar Sesión") { 
     
+        boton.style.backgroundColor =  "#cccccc";
+        boton.style.color = "#000";
+
+    }
+</script>
 </body>
 </html>
