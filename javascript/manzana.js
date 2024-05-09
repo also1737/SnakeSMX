@@ -15,8 +15,8 @@ class Manzana extends Cubo {
     }
 
     mover (alto, ancho, tamano) {
-        this.x = Math.floor(Math.random() * ancho) * (tamano);
-        this.y = Math.floor(Math.random() * alto) * (tamano);
+        this.x = Math.floor(Math.random() * ancho);
+        this.y = Math.floor(Math.random() * alto);
         
     }
     

@@ -1,18 +1,15 @@
 class Tablero {
 
     constructor(alto,ancho, tamano) {
-        this.alto = alto;
-        this.ancho = ancho;
+        this.numeroFilas = alto / tamano;
+        this.numeroColumnas = ancho / tamano;
         this.crearMatriz(tamano); //matriz que contrendra las celdas del juego
         console.log(this.celdas);
     }
 
     crearMatriz(tamano){
-
-        let numeroColumnas = this.ancho / tamano;
-        let numeroFilas = this.alto / tamano;
         
-        this.celdas = new Array(numeroColumnas);
+        this.celdas = new Array(this.numeroColumnas);
 
         let x = 0;
         let y = 0;
@@ -21,7 +18,7 @@ class Tablero {
 
         for (let i = 0; i < this.celdas.length; i++) {
 
-            this.celdas[i] = new Array(numeroFilas);
+            this.celdas[i] = new Array(this.numeroFilas);
 
             for (let j = 0; j < this.celdas[i].length; j++) {
 
