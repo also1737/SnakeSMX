@@ -11,7 +11,28 @@ var manzana = new Manzana (35,12,25);
 
 rafa.empezar();
 
-var x = 15
+var bucle = 0;
+
+function empezarJuego(tecla) {
+
+    if (tecla === "Enter") {
+
+        window.clearInterval(bucle);
+        bucle = window.setInterval(bucleJuego, 100);
+
+    }
+
+}
+
+function pausarJuego(tecla) {
+
+    if (tecla === "Space") {
+
+        window.clearInterval(bucle);
+
+    }
+
+}
 
 function bucleJuego() {
 
@@ -20,17 +41,17 @@ function bucleJuego() {
     rafa.dibujar(tablerito.celdas);
     tablerito.dibujar();
 
-    x++;
-
 }
-
-var bucle = window.setInterval(bucleJuego, 100);
 
 console.log(rafa.bloques);
 
+window.addEventListener("keydown", function(event){ empezarJuego(event.code); });
+window.addEventListener("keydown", function(event){ pausarJuego(event.code); });
 window.addEventListener("keydown", function(event){ teclasPresionadas(event.code); });
 
 function teclasPresionadas(tecla) {
+
+    console.log(tecla);
 
     switch (tecla) {
 
