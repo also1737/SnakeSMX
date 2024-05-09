@@ -13,4 +13,13 @@ class Manzana extends Cubo {
         tablero[x][y].tipo = 2;
 
     }
+
+    mover (alto, ancho, tamano) {
+        this.x = Math.floor(Math.random() * ancho) * (tamano);
+        this.y = Math.floor(Math.random() * alto) * (tamano);
+        
+    }
+    
+
+      
 }

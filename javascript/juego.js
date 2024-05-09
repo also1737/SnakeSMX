@@ -36,6 +36,7 @@ function pausarJuego(tecla) {
 
 function bucleJuego() {
 
+    manzana.mover (tablerito.alto,tablerito.ancho,tablerito.tamano);
     manzana.anadirArray(tablerito.celdas);
     rafa.mover(movimientoX, movimientoY);
     rafa.dibujar(tablerito.celdas);
