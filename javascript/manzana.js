@@ -14,14 +14,14 @@ class Manzana extends Cubo {
 
     }
 
-    mover (alto, ancho) {
+    mover (alto, ancho, tablero) {
         
         this.Xantes = this.x;
         this.Yantes = this.y;
 
         this.x = Math.floor(Math.random() * ancho);
         this.y = Math.floor(Math.random() * alto);
-
+        this.anadirArray(tablero);
     }
     
 

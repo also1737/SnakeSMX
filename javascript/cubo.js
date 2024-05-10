@@ -1,14 +1,12 @@
 class Cubo {
 
     constructor(x,y,tamano,tipo) {
-
         this.x = x;
         this.y = y;
         this.tamano = tamano;
         this.tipo = tipo;
         this.color = "";
         this.imagen = new Image();
-
     }
     
     dibujar() {

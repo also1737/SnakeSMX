@@ -14,12 +14,9 @@ class Serpiente {
 
     empezar() {
 
-        let off = 0;
-
         for (let i = 0; i < this.longitud; i++) {
 
-            this.bloques[i] = {x: this.cabezaX - off, y: this.cabezaY};
-            off++;
+            this.bloques[i] = {x: this.cabezaX - i, y: this.cabezaY};
 
         }
 
@@ -32,10 +29,11 @@ class Serpiente {
 
         let bloques2 = [...this.bloques];
 
+        
         this.cabezaX += this.movimientoX;
         this.cabezaY += this.movimientoY;
 
-        this.bloques[0] = {x: this.cabezaX, y: this.cabezaY,};
+        this.bloques[0] = {x: this.cabezaX, y: this.cabezaY};
 
         for (let i = 0; i < this.longitud - 1; i++) {
 
@@ -45,9 +43,12 @@ class Serpiente {
 
         let x = bloques2[this.longitud - 1]["x"];
         let y = bloques2[this.longitud - 1]["y"];
-
-        tablero[x][y].tipo = 0;
-
+        //come
+        if((tablero[this.cabezaX + this.movimientoX][this.cabezaY + this.movimientoY].tipo != 2)){
+            tablero[x][y].tipo = 0;
+        }
+        
+        dibujar(tablero);
     }
 
     comer(manzana) {

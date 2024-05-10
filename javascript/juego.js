@@ -15,14 +15,15 @@ bucle = window.setInterval(bucleJuego, 16);
 
 function bucleJuego() {
 
+    rafa.mover(tablerito.celdas);
+
     if (rafa.comer(manzana)){
-        manzana.mover(tablerito.numeroFilas,tablerito.numeroColumnas);
-        rafa.aumentar();
+        manzana.mover(tablerito.numeroFilas,tablerito.numeroColumnas, tablerito.celdas);
+        //rafa.aumentar();
         //clearInterval(bucle);
     }
-    manzana.anadirArray(tablerito.celdas);
-    rafa.mover(tablerito.celdas);
-    rafa.dibujar(tablerito.celdas);
+
+    //rafa.dibujar(tablerito.celdas);
     tablerito.dibujar();
     puntos();
 
