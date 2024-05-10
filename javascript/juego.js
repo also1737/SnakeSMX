@@ -1,4 +1,4 @@
-var tamano = 25;
+var tamano = 10;
 
 var c = document.getElementById("juego");
 var ctx = c.getContext("2d");
@@ -11,7 +11,7 @@ rafa.empezar();
 
 var bucle = 0;
 
-bucle = window.setInterval(bucleJuego, 50);
+bucle = window.setInterval(bucleJuego, 16);
 
 function bucleJuego() {
 

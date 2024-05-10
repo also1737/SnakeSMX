@@ -16,7 +16,7 @@ class Cubo {
         switch (this.tipo) {
 
             case 0:
-                this.color = "#000";
+                this.color = "#111";
                 break;
             case 1:
                 this.color = "#0f0";
