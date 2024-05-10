@@ -7,6 +7,7 @@ class Cubo {
         this.tamano = tamano;
         this.tipo = tipo;
         this.color = "";
+        this.imagen = new Image();
 
     }
     
@@ -31,6 +32,8 @@ class Cubo {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.tamano, this.tamano);
         ctx.stroke();
+        
+        
     }
 
 }

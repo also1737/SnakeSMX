@@ -11,7 +11,7 @@ rafa.empezar();
 
 var bucle = 0;
 
-bucle = window.setInterval(bucleJuego, 100);
+bucle = window.setInterval(bucleJuego, 50);
 
 function bucleJuego() {
 
