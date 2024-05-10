@@ -1,31 +1,32 @@
-var tamano = 10;
+var tamano = 25;
 
 var c = document.getElementById("juego");
 var ctx = c.getContext("2d");
 
 var tablerito = new Tablero(c.height,c.width,tamano);
 var rafa = new Serpiente(15,12);
-var manzana = new Manzana (35,12,tamano);
-
-rafa.empezar();
+var manzana = new Manzana (35,12,tamano,tablerito.celdas);
 
 var bucle = 0;
 
-bucle = window.setInterval(bucleJuego, 16);
+bucle = window.setInterval(bucleJuego, 50);
 
 function bucleJuego() {
-
-    rafa.mover(tablerito.celdas);
 
     if (rafa.comer(manzana)){
         manzana.mover(tablerito.numeroFilas,tablerito.numeroColumnas, tablerito.celdas);
         //rafa.aumentar();
         //clearInterval(bucle);
     }
-
-    //rafa.dibujar(tablerito.celdas);
+    rafa.mover(tablerito.celdas);
     tablerito.dibujar();
+    if (rafa.muerto) {
+        tablerito.acabarJuego(rafa.score);
+        clearInterval(bucle);
+    }
+    //rafa.dibujar(tablerito.celdas);
     puntos();
+
 
 }
 

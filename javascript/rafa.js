@@ -8,20 +8,24 @@ class Serpiente {
         this.movimientoY = 0;
         this.longitud = 3;
         this.score = 0;
-        this.bloques = new Array(this.longitud);
+        this.muerto = false;
+        this.bloques = this.empezar();
 
     }
 
     empezar() {
 
+        let bloques = new Array(this.longitud);
+
         for (let i = 0; i < this.longitud; i++) {
 
-            this.bloques[i] = {x: this.cabezaX - i, y: this.cabezaY};
+            bloques[i] = {x: this.cabezaX - i, y: this.cabezaY};
 
         }
 
-        console.log(this.bloques);
+        console.log(bloques);
 
+        return bloques;
     }
 
 
@@ -43,12 +47,21 @@ class Serpiente {
 
         let x = bloques2[this.longitud - 1]["x"];
         let y = bloques2[this.longitud - 1]["y"];
-        //come
-        if((tablero[this.cabezaX + this.movimientoX][this.cabezaY + this.movimientoY].tipo != 2)){
-            tablero[x][y].tipo = 0;
-        }
         
-        dibujar(tablero);
+
+        switch (tablero[this.cabezaX][this.cabezaY].tipo) {
+        
+            case 1:
+                this.muerto = true;
+                break;
+            case 2:
+                this.longitud++;
+                break;
+        
+        }
+
+        tablero[x][y].tipo = 0;
+        this.dibujar(tablero);
     }
 
     comer(manzana) {
@@ -70,8 +83,6 @@ class Serpiente {
         let lastY = this.bloques[this.bloques.length - 1]["y"];
 
         this.bloques.push({x: lastX, y: lastY});
-
-        this.longitud++;
 
         console.log(this.bloques);
 

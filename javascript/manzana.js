@@ -1,10 +1,12 @@
 class Manzana extends Cubo {
     
-    constructor (x,y,tamano) {
+    constructor (x,y,tamano,tablero) {
         super (x,y,tamano);
         this.color = "";
         this.Xantes = 0;
         this.Yantes = 0;
+
+        this.anadirArray(tablero);
     }
 
     anadirArray(tablero) {
