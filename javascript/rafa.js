@@ -4,7 +4,10 @@ class Serpiente {
 
         this.cabezaX = cabezaX;
         this.cabezaY = cabezaY;
-        this.longitud = 10;
+        this.movimientoX = 1;
+        this.movimientoY = 0;
+        this.longitud = 3;
+        this.score = 0;
         this.bloques = new Array(this.longitud);
 
     }
@@ -25,14 +28,12 @@ class Serpiente {
     }
 
 
-    mover(x, y, tablero) {
+    mover(tablero) {
 
         let bloques2 = [...this.bloques];
 
-        console.log("bloques2:",bloques2);
-
-        this.cabezaX += x;
-        this.cabezaY += y;
+        this.cabezaX += this.movimientoX;
+        this.cabezaY += this.movimientoY;
 
         this.bloques[0] = {x: this.cabezaX, y: this.cabezaY,};
 
@@ -42,15 +43,38 @@ class Serpiente {
 
         }
 
-        console.log("bloques:",this.bloques);
-
-        x = bloques2[this.longitud - 1]["x"];
-        y = bloques2[this.longitud - 1]["y"];
+        let x = bloques2[this.longitud - 1]["x"];
+        let y = bloques2[this.longitud - 1]["y"];
 
         tablero[x][y].tipo = 0;
 
     }
 
+    comer(manzana) {
+        
+        let come = false;
+        
+        if (this.cabezaX === manzana.x && this.cabezaY === manzana.y) {
+            come = true;
+            this.score++;
+        }
+
+        return come;
+
+    }
+
+    aumentar() {
+
+        let lastX = this.bloques[this.bloques.length - 1]["x"];
+        let lastY = this.bloques[this.bloques.length - 1]["y"];
+
+        this.bloques.push({x: lastX, y: lastY});
+
+        this.longitud++;
+
+        console.log(this.bloques);
+
+    }
 
     dibujar(tablero) {
 
