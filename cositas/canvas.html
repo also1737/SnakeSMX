@@ -42,6 +42,19 @@
                 
                 console.log(this.acc);
 
+                if (this.x < 0) {
+                    this.velX = -this.velX;
+                }
+                if (this.x + this.tamaño > c.width) {
+                    this.velX = -this.velX;
+                }
+
+                if (this.y < 0) {
+                    this.acc = 0;
+                    this.gravedad = 0.5;
+                    this.y = 0;
+                }
+
                 this.x += this.velX;
                 this.y += this.velY + this.acc;
 
@@ -82,8 +95,8 @@
                 }
 
                 if (toca) {
-                    this.velX = this.velX * 0.80;
-                    otroCubo.velX = otroCubo.velX * 0.80;
+                    this.velX = this.velX * 0.75;
+                    otroCubo.velX = otroCubo.velX * 0.75;
                 }
 
                 return toca;
@@ -155,7 +168,7 @@
             //console.log(key);
 
             if (key == "KeyW") {
-                c1.gravedad = -0.5;
+                c1.gravedad = -0.7;
             }
 
             if (key == "KeyA") {
@@ -171,7 +184,7 @@
             }
 
             if (key == "ArrowUp") {
-                c2.gravedad = -0.5;
+                c2.gravedad = -0.7;
             }
 
             if (key == "ArrowLeft") {
