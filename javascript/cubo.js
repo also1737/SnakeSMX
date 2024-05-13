@@ -14,13 +14,13 @@ class Cubo {
         switch (this.tipo) {
 
             case 0:
-                this.color = "#111";
+                this.color = "#111111";
                 break;
             case 1:
-                this.color = "#0f0";
+                this.color = "#5d9b2e";
                 break;
             case 2:
-                this.color = "#f00";
+                this.color = "#b30000";
                 break;
             default:
                 this.color = "#fff";

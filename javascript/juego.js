@@ -1,4 +1,4 @@
-var tamano = 10;
+var tamano = 25;
 
 var c = document.getElementById("juego");
 var ctx = c.getContext("2d");
@@ -9,22 +9,21 @@ var manzana = new Manzana (35,12,tamano,tablerito.celdas);
 
 var bucle = 0;
 
-bucle = window.setInterval(bucleJuego, 16);
+bucle = window.setInterval(bucleJuego, 75);
 
 function bucleJuego() {
 
-    if (rafa.comer(manzana)){
-        manzana.mover(tablerito.numeroFilas,tablerito.numeroColumnas, tablerito.celdas);
-        //rafa.aumentar();
-        //clearInterval(bucle);
-    }
-    rafa.mover(tablerito.celdas);
+    rafa.mover(tablerito, manzana);
+    
     tablerito.dibujar();
+
     if (rafa.muerto) {
+
         tablerito.acabarJuego(rafa.score);
         clearInterval(bucle);
+
     }
-    //rafa.dibujar(tablerito.celdas);
+
     puntos();
 
 
@@ -39,23 +38,25 @@ function teclasPresionadas(tecla) {
     switch (tecla) {
 
         case "ArrowUp":
-            rafa.movimientoY = -1;
+            
+            if (rafa.movimientoY != 1) rafa.movimientoY = -1;
             rafa.movimientoX = 0;
             break;
 
         case "ArrowRight":
             rafa.movimientoY = 0;
-            rafa.movimientoX = 1;
+            if (rafa.movimientoX != - 1) rafa.movimientoX = 1;
             break;
 
         case "ArrowDown":
-            rafa.movimientoY = 1;
+            
+            if (rafa.movimientoY != -1) rafa.movimientoY = 1;
             rafa.movimientoX = 0;
             break;
 
         case "ArrowLeft":
             rafa.movimientoY = 0;
-            rafa.movimientoX = -1;
+            if (rafa.movimientoX != 1) rafa.movimientoX = -1;
             break;
 
     }
@@ -64,7 +65,7 @@ function teclasPresionadas(tecla) {
 
 function puntos(){
 
-    let texto = "Score: "+rafa.score;
+    let texto = "Score: " + rafa.score;
 
     ctx.font = "30px Arial";
     ctx.fillStyle = "#fff"
