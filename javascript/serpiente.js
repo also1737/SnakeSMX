@@ -78,7 +78,7 @@ class Serpiente {
                 break;
         
         }
-            if (this.x < 0 || this.x + this.tamano > c.width || this.y < 0 || this.y + this.tamano > c.height) { 
+            if (this.cabezaX < 0 || this.cabezaX + this.tamano > c.width || this.cabezaY < 0 || this.cabezaY + this.tamano > c.height) { 
                 this.muerto = true;
             }
 
