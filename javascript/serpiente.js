@@ -61,6 +61,11 @@ class Serpiente {
         // guardamos la posición del último cubo de la serpiente
         let x = bloques2[bloques2.length - 1]["x"];
         let y = bloques2[bloques2.length - 1]["y"];
+
+        if (tablero.celdas[this.cabezaX] == undefined || tablero.celdas[this.cabezaX][this.cabezaY] == undefined ) {
+            this.muerto = true;
+            return;
+        }
         
         //comprobamos qué es lo que hay delante de la serpiente
         switch (tablero.celdas[this.cabezaX][this.cabezaY].tipo) {
@@ -78,9 +83,9 @@ class Serpiente {
                 break;
         
         }
-            if (this.cabezaX < 0 || this.cabezaX + this.tamano > c.width || this.cabezaY < 0 || this.cabezaY + this.tamano > c.height) { 
+            /*if (this.cabezaX < 0 || this.cabezaX + this.tamano > c.width || this.cabezaY < 0 || this.cabezaY + this.tamano > c.height) { 
                 this.muerto = true;
-            }
+            }*/
 
         //borramos el último cubo de la serpiente
         tablero.celdas[x][y].tipo = 0;
