@@ -35,7 +35,7 @@
     <script src="javascript/tablero.js"></script>
     <script src="javascript/cubo.js"></script>
     <script src="javascript/manzana.js"></script>
-    <script src="javascript/rafa.js"></script>
+    <script src="javascript/serpiente.js"></script>
     <script src="javascript/juego.js"></script>
     <script>
 
