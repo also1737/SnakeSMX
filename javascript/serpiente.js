@@ -78,8 +78,9 @@ class Serpiente {
                 break;
         
         }
-
-
+            if (this.x < 0 || this.x + this.tamano > c.width || this.y < 0 || this.y + this.tamano > c.height) { 
+                this.muerto = true;
+            }
 
         //borramos el último cubo de la serpiente
         tablero.celdas[x][y].tipo = 0;
