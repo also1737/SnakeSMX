@@ -1,4 +1,4 @@
-var tamano = 5;
+var tamano = 10;
 
 var c = document.getElementById("juego");
 var ctx = c.getContext("2d");
