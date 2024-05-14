@@ -1,21 +1,29 @@
 class Tablero {
 
     constructor(alto,ancho, tamano) {
+
+        //cantidad de cubos que habrá por fila y columna
         this.numeroFilas = alto / tamano;
         this.numeroColumnas = ancho / tamano;
-        this.crearMatriz(tamano); //matriz que contrendra las celdas del juego
-        console.log(this.celdas);
+        
+        //creamos la matriz que contendra las celdas de juego
+        this.crearMatriz(tamano);
+
     }
 
     crearMatriz(tamano){
         
+        //inicializamos matriz como array del mismo tamaño que el numero de columnas
         this.celdas = new Array(this.numeroColumnas);
 
+        //posición del cubo
         let x = 0;
         let y = 0;
 
+        //tipo del cubo 
         let tipo = 0;
 
+        //iteramos sobre este array
         for (let i = 0; i < this.celdas.length; i++) {
 
             this.celdas[i] = new Array(this.numeroFilas);

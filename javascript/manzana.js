@@ -16,7 +16,7 @@ class Manzana extends Cubo {
         tablero[this.Xantes][this.Yantes].tipo = 0;
 
         //la movemos a su nueva posición
-        tablero[this.x][this.y].tipo = 2;
+        tablero[this.x][this.y].tipo = 3;
 
     }
 

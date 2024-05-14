@@ -12,8 +12,9 @@ class Cubo {
         //tipo y color
         /* 
         tipo 0 = nada
-        tipo 1 = serpiente
-        tipo 2 = manzana
+        tipo 1 = serpiente (1J)
+        tipo 2 = serpiente (2J)
+        tipo 3 = manzana
         */
         this.tipo = tipo;
         this.color = "";
@@ -34,8 +35,13 @@ class Cubo {
                 this.color = "#5d9b2e";
                 break;
 
-            //manzana = roja
+            //serpiente = roja
             case 2:
+                this.color = "#0099cc";
+                break;
+
+            //manzana
+            case 3:
                 this.color = "#b30000";
                 break;
 

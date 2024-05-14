@@ -1,6 +1,6 @@
 class Serpiente {
 
-    constructor(cabezaX, cabezaY) {
+    constructor(cabezaX, cabezaY, jugador) {
 
         //posición de la cabeza de la serpiente
         this.cabezaX = cabezaX;
@@ -13,6 +13,9 @@ class Serpiente {
         //longitud
         this.longitud = 3;
         this.score = 0;
+
+        //jugador 1 o 2
+        this.tipo = jugador;
 
         //con esto comprobaremos colisiones
         this.muerto = false;
@@ -47,6 +50,13 @@ class Serpiente {
         //cambiamos la posición de la cabeza
         this.cabezaX += this.movimientoX;
         this.cabezaY += this.movimientoY;
+        
+        //comprobamos si la cabeza de la serpiente está fuera del tablero
+        if (this.cabezaX < 0 || this.cabezaX > tablero.numeroColumnas || this.cabezaY < 0 || this.cabezaY > tablero.numeroFilas) { 
+            //se muere
+            this.muerto = true;
+            return;
+        }
 
         //modificamos el array con esta nueva posición
         this.bloques[0] = {x: this.cabezaX, y: this.cabezaY};
@@ -62,30 +72,29 @@ class Serpiente {
         let x = bloques2[bloques2.length - 1]["x"];
         let y = bloques2[bloques2.length - 1]["y"];
 
-        if (tablero.celdas[this.cabezaX] == undefined || tablero.celdas[this.cabezaX][this.cabezaY] == undefined ) {
+        /*if (tablero.celdas[this.cabezaX] == undefined || tablero.celdas[this.cabezaX][this.cabezaY] == undefined ) {
             this.muerto = true;
             return;
-        }
+        }*/
         
         //comprobamos qué es lo que hay delante de la serpiente
         switch (tablero.celdas[this.cabezaX][this.cabezaY].tipo) {
         
             //el bloque de delante es parte de la serpiente, se acaba el juego
             case 1:
+            case 2:
                 this.muerto = true;
                 break;
 
             //el bloque de delante es una manzana, aumentamos longitud 
-            case 2:
+            case 3:
                 this.longitud++;
                 this.score++;
                 manzana.mover(tablero.numeroFilas,tablero.numeroColumnas, tablero.celdas);
                 break;
         
         }
-            /*if (this.cabezaX < 0 || this.cabezaX + this.tamano > c.width || this.cabezaY < 0 || this.cabezaY + this.tamano > c.height) { 
-                this.muerto = true;
-            }*/
+            
 
         //borramos el último cubo de la serpiente
         tablero.celdas[x][y].tipo = 0;
@@ -98,12 +107,14 @@ class Serpiente {
         let x = 0;
         let y = 0;
 
+        //iteramos el array de la serpiente
         for (let i = 0; i < this.bloques.length; i++) {
 
+            //dibujamos los bloques de la serpiente en el array
             x = this.bloques[i]["x"];
             y = this.bloques[i]["y"];
 
-            tablero[x][y].tipo = 1;
+            tablero[x][y].tipo = this.tipo;
 
         }
 
