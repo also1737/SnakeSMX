@@ -1,4 +1,4 @@
-var tamano = 25;
+var tamano = 50;
 
 var c = document.getElementById("juego");
 var ctx = c.getContext("2d");
@@ -10,7 +10,7 @@ var manzana = new Manzana (35,12,tamano,tablerito.celdas);
 
 var bucle = 0;
 
-bucle = window.setInterval(bucleJuego, 75);
+bucle = window.setInterval(bucleJuego, 200);
 
 function bucleJuego() {
 
