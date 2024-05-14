@@ -31,9 +31,9 @@ function bucleJuego() {
         clearInterval(bucle);
 
     }
-
-    puntos();
     */
+    puntos();
+    
 
 }
 
