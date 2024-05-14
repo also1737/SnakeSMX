@@ -25,14 +25,14 @@ function bucleJuego() {
         clearInterval(bucle);
 
     }
-    if (rafa2.muerto) {
+    /*if (rafa2.muerto) {
 
         tablerito.acabarJuego(rafa2.score);
         clearInterval(bucle);
 
     }
 
-    puntos();
+    */puntos();
 
 
 }
