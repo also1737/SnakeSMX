@@ -32,7 +32,7 @@ class Cubo {
 
             //serpiente = verde
             case 1:
-                this.color = "#4FE39C";
+                this.color = "#5d9b2e";
                 break;
 
             //serpiente = roja
