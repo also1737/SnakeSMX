@@ -15,7 +15,7 @@ bucle = window.setInterval(bucleJuego, 75);
 function bucleJuego() {
 
     rafa1.mover(tablerito, manzana);
-    //rafa2.mover(tablerito, manzana);
+    rafa2.mover(tablerito, manzana);
     
     tablerito.dibujar();
 
