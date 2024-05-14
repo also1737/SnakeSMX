@@ -65,24 +65,24 @@ function teclasPresionadas(tecla) {
             if (rafa1.movimientoX != 1) rafa1.movimientoX = -1;
             break;
 
-        case "KeyW":
+        //case "KeyW":
             
             if (rafa2.movimientoY != 1) rafa2.movimientoY = -1;
             rafa2.movimientoX = 0;
             break;
 
-        case "KeyD":
+        //case "KeyD":
             rafa2.movimientoY = 0;
             if (rafa2.movimientoX != - 1) rafa2.movimientoX = 1;
             break;
 
-        case "KeyS":
+        //case "KeyS":
             
             if (rafa2.movimientoY != -1) rafa2.movimientoY = 1;
             rafa2.movimientoX = 0;
             break;
 
-        case "KeyA":
+        //case "KeyA":
             rafa2.movimientoY = 0;
             if (rafa2.movimientoX != 1) rafa2.movimientoX = -1;
             break;
