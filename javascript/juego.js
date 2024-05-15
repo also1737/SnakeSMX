@@ -58,7 +58,7 @@ empezar();
 function bucleJuego() {
 
     rafa1.mover(tablerito, manzana);
-    //rafa2.mover(tablerito, manzana);
+    rafa2.mover(tablerito, manzana);
     
     tablerito.dibujar();
 
@@ -68,13 +68,13 @@ function bucleJuego() {
         clearInterval(bucle);
 
     }
-    /*if (rafa2.muerto) {
+    if (rafa2.muerto) {
 
         tablerito.acabarJuego(rafa2.score);
         clearInterval(bucle);
 
     }
-    */
+    
     puntos();
     
 
@@ -115,6 +115,7 @@ function teclasPresionadas(tecla) {
     }
 }
     
+    
 
         /*case "KeyW":
             
@@ -137,10 +138,11 @@ function teclasPresionadas(tecla) {
             rafa2.movimientoY = 0;
             if (rafa2.movimientoX != 1) rafa2.movimientoX = -1;
             break;
-    }
+        }
+    }*/
+    
 
-}
-*/
+
 function puntos(){
 
     let texto = /*usuario;*/"Score: " + rafa1.score;
