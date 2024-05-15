@@ -23,11 +23,11 @@ class Cubo {
     dibujar() {
 
         //decidimos que color tendrá el cubo a partir de su tipo
-        switch (this.tipo) {
+        /*switch (this.tipo) {
 
             //nada = gris
             case 0:
-                this.color = "#111111";
+                this.color = "#d9ffb3";
                 break;
 
             //serpiente = verde
@@ -48,7 +48,7 @@ class Cubo {
             //otro = blanco
             default:
                 this.color = "#fff";
-        }
+        }*/
 
         //dibujamos cubo con su posición, tamaño y color
         ctx.beginPath();

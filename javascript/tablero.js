@@ -48,6 +48,9 @@ class Tablero {
 
             for (let j = 0; j < this.celdas[i].length; j++) {
 
+                if (this.celdas[i][j].tipo == 0) {
+                    this.celdas[i][j].color = "#00001a";
+                }
                 this.celdas[i][j].dibujar();
 
             };
