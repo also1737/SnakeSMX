@@ -58,19 +58,12 @@ empezar();
 function bucleJuego() {
 
     rafa1.mover(tablerito, manzana);
-    rafa2.mover(tablerito, manzana);
     
     tablerito.dibujar();
 
     if (rafa1.muerto) {
 
         tablerito.acabarJuego(rafa1.score);
-        clearInterval(bucle);
-
-    }
-    if (rafa2.muerto) {
-
-        tablerito.acabarJuego(rafa2.score);
         clearInterval(bucle);
 
     }
@@ -148,6 +141,6 @@ function puntos(){
     let texto = /*usuario;*/"Score: " + rafa1.score;
 
     ctx.font = "30px Arial";
-    ctx.fillStyle = color;
+    ctx.fillStyle = "#fff";
     ctx.fillText(texto, 10, 30);
 }
