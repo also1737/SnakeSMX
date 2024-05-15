@@ -5,8 +5,10 @@ var ctx = c.getContext("2d");
 
 var tablerito = new Tablero(c.height,c.width,tamano);
 var rafa1 = new Serpiente(15,12,1);
-//var rafa2 = new Serpiente(15,15,2);
-var manzana = new Manzana (35,12,tamano,tablerito.celdas);
+var rafa2 = new Serpiente(15,15,2);
+var manzana1 = new Manzana (35,12,tamano,tablerito.celdas);
+var manzana2 = new Manzana (35,13,tamano,tablerito.celdas);
+
 
 var bucle = 0;
 
