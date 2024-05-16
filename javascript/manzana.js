@@ -14,9 +14,11 @@ class Manzana extends Cubo {
 
         //borramos la manzana de su posición anterior
         tablero[this.Xantes][this.Yantes].tipo = 0;
+        tablero[this.Xantes][this.Yantes].color = "#00001a";
 
         //la movemos a su nueva posición
         tablero[this.x][this.y].tipo = 3;
+        tablero[this.x][this.y].color = "#b30000";
 
     }
 

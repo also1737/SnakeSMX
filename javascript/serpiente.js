@@ -1,6 +1,6 @@
 class Serpiente {
 
-    constructor(cabezaX, cabezaY, jugador) {
+    constructor(cabezaX, cabezaY, jugador, color) {
 
         //posición de la cabeza de la serpiente
         this.cabezaX = cabezaX;
@@ -16,6 +16,8 @@ class Serpiente {
 
         //jugador 1 o 2
         this.tipo = jugador;
+        this.color = color;
+        console.log(this.color);
 
         //con esto comprobaremos colisiones
         this.muerto = false;
@@ -52,7 +54,7 @@ class Serpiente {
         this.cabezaY += this.movimientoY;
         
         //comprobamos si la cabeza de la serpiente está fuera del tablero
-        if (this.cabezaX < 0 || this.cabezaX > tablero.numeroColumnas || this.cabezaY < 0 || this.cabezaY > tablero.numeroFilas) { 
+        if (this.cabezaX < 0 || this.cabezaX > tablero.numeroColumnas -1 || this.cabezaY < 0 || this.cabezaY > tablero.numeroFilas - 1 ) { 
             //se muere
             this.muerto = true;
             return;
@@ -104,6 +106,10 @@ class Serpiente {
 
     dibujar(tablero) {
 
+        this.color += 2;
+
+        if(this.color > 360) this.color = 0;
+
         let x = 0;
         let y = 0;
 
@@ -115,7 +121,7 @@ class Serpiente {
             y = this.bloques[i]["y"];
 
             tablero[x][y].tipo = this.tipo;
-
+            tablero[x][y].color = "hsl(" + (this.color + i) + ", 100%, 50%)";
         }
 
     }
