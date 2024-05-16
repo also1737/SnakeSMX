@@ -106,9 +106,9 @@ class Serpiente {
 
     dibujar(tablero) {
 
-        /*this.color += 1;
+        this.color += 1;
 
-        if(this.color > 360) this.color = 0;*/
+        if(this.color > 360) this.color = 0;
 
         let x = 0;
         let y = 0;
@@ -121,7 +121,7 @@ class Serpiente {
             y = this.bloques[i]["y"];
 
             tablero[x][y].tipo = this.tipo;
-            tablero[x][y].color = this.color;//"hsl(" + (this.color - i) + ", 100%, 50%)";
+            tablero[x][y].color = /*this.color;*/"hsl(" + (this.color - i) + ", 100%, 50%)";
         }
 
     }
