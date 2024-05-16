@@ -106,9 +106,9 @@ class Serpiente {
 
     dibujar(tablero) {
 
-        this.color += 1;
+        /*this.color += 1;
 
-        if(this.color > 360) this.color = 0;
+        if(this.color > 360) this.color = 0;*/
 
         let x = 0;
         let y = 0;
@@ -121,9 +121,41 @@ class Serpiente {
             y = this.bloques[i]["y"];
 
             tablero[x][y].tipo = this.tipo;
-            tablero[x][y].color = /*this.color;*/"hsl(" + (this.color - i) + ", 100%, 50%)";
+            tablero[x][y].color = this.color;//"hsl(" + (this.color - i) + ", 100%, 50%)";
         }
 
     }
+
+    //función que comprueba qué teclas se han presionado
+    teclasPresionadas(tecla, teclas) {
+
+        switch (tecla) {
+
+            case teclas[0]:
+            
+                if (this.movimientoY != 1) this.movimientoY = -1;
+                this.movimientoX = 0;
+                break;
+
+            case teclas[1]:
+                this.movimientoY = 0;
+                if (this.movimientoX != - 1) this.movimientoX = 1;
+                break;
+
+            case teclas[2]:
+            
+                if (this.movimientoY != -1) this.movimientoY = 1;
+                this.movimientoX = 0;
+                break;
+
+            case teclas[3]:
+                this.movimientoY = 0;
+                if (this.movimientoX != 1) this.movimientoX = -1;
+                break;
+        
+            case "Space":
+                if (this.muerto) empezar(); 
+    }
+}
 
 }

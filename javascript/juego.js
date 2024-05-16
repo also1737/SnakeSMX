@@ -5,7 +5,11 @@ var bucle = 0;
 var tamano = 25;
 var color, tablerito, manzana, rafa1;
 
+var TeclasFlechas = ["ArrowUp","ArrowRight","ArrowDown","ArrowLeft"];
 
+var TeclasWASD = ["KeyW","KeyD","KeyS","KeyA"];
+
+//función que se encarga de leer el color de serpiente del usuario guardado en la BD
 async function leerColor() {
  
     //creamos una promesa
@@ -30,6 +34,7 @@ async function leerColor() {
 
                 //si el usuario no tiene color, la serpiente se pone verde por defecto
                 myResolve("#5d9b2e");
+
             }
 
         }
@@ -42,90 +47,76 @@ async function leerColor() {
     //esperamos a la promesa, con esto nos aseguramos de no crear la serpiente antes de que el PHP responda con el color de la serpiente.
     color = await promesa;
 
-    rafa1  = new Serpiente(15,12,1,0);
+    //creamos la serpiente
+    rafa1  = new Serpiente(15,12,1,color);
 
 }
 
 function empezar() {
 
+    //escondemos el botón de ajustes
     ajustes.style.display = "none";
+
+    //creamos tablero
     tablerito = new Tablero(c.height,c.width,tamano,"#00001a");
+
+    //leemos color de la serpiente
     leerColor();
+
+    //creamos manzana
     manzana = new Manzana (35,12,tamano,tablerito.celdas);
 
+    //empezamos bucle del juego
     bucle = window.setInterval(bucleJuego, 75);
 
 }
 
-
-empezar();
-
+//función principal del juego
 function bucleJuego() {
 
+    //movemos la serpiente
     rafa1.mover(tablerito, manzana);
     
+    //dibujamos el tablero
     tablerito.dibujar();
 
+    //comprobamos si la serpiente se ha muerto
     if (rafa1.muerto) {
 
+        //ejecutamos la función de fin de juego
         tablerito.acabarJuego(rafa1.score);
+
+        //subimos la puntuación a la BD
         subirPuntuacion();
+
+        //borramos el bucle de juego
         clearInterval(bucle);
 
     }
     
+    //mostramos la puntuación
     puntos();
-    
 
 }
 
-window.addEventListener("keydown", function(event){ teclasPresionadas(event.code); });
+//empezamos el juego al cargarse la página
+empezar();
 
+//creamos un evento que escucha a las teclas presionadas y ejecuta la función
+window.addEventListener("keydown", function(event){ rafa1.teclasPresionadas(event.code, TeclasWASD); });
 
-function teclasPresionadas(tecla) {
-
-    console.log(tecla);
-
-    switch (tecla) {
-
-        case "ArrowUp":
-            
-            if (rafa1.movimientoY != 1) rafa1.movimientoY = -1;
-            rafa1.movimientoX = 0;
-            break;
-
-        case "ArrowRight":
-            rafa1.movimientoY = 0;
-            if (rafa1.movimientoX != - 1) rafa1.movimientoX = 1;
-            break;
-
-        case "ArrowDown":
-            
-            if (rafa1.movimientoY != -1) rafa1.movimientoY = 1;
-            rafa1.movimientoX = 0;
-            break;
-
-        case "ArrowLeft":
-            rafa1.movimientoY = 0;
-            if (rafa1.movimientoX != 1) rafa1.movimientoX = -1;
-            break;
-        
-        case "Space":
-            if (rafa1.muerto) empezar(); 
-    }
-}
-    
-
-
-function puntos(){
+//función que muestra los puntos de la serpiente en la esquina del canvas
+function mostrarPuntos(){
 
     let texto = "Score: " + rafa1.score;
 
     ctx.font = "30px Arial";
     ctx.fillStyle = "#fff";
     ctx.fillText(texto, 10, 30);
+
 }
 
+//función que sube la puntuación final del usuario a la BD
 function subirPuntuacion() {
 
     //sacamos la fecha actual
@@ -146,7 +137,7 @@ function subirPuntuacion() {
     //esto se ejecuta al abrir el archivo PHP
     peticion.onload = function() {
 
-        //si la petición se realiza correctamente, mostramos el contenido devuelto por el php
+        //comprobamos que el archivo se ha abierto correctamente
         if (peticion.status == 200) {
 
             //la variable 'this.responseText' contiene los datos que ha devuelto el PHP
@@ -160,6 +151,6 @@ function subirPuntuacion() {
     peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     //variables post que pasamos
-    peticion.send("puntos="+rafa1.score+"&mapa=2&fecha="+Fecha+"&dif=2");
+    peticion.send("puntos=" + rafa1.score + "&mapa=2&fecha=" + Fecha + "&dif=2");
 
 }
