@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Znamenny+Musical+Notation&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/cssjuego.css">
     <link rel="stylesheet" type="text/css" href="css/cssglobal.css">
     <link rel="logo-manzana" type="image/x-icon" href="/img/manzana_manzanita_roja.webp">
@@ -30,8 +29,16 @@
                     <li><a href="login.php" id="boton_inicio"><?php echo $boton ?> Sesión</a></li>
             </ul>
         </div>
-    </nav> 
+    </nav>
+
+    <div id="opciones-ajustes" >
+
+        <p>llalalalalalal</p>
+
+    </div>
+
     <canvas id="juego" width="1350" height="650" ></canvas>
+    <button id="ajustes"> Ajustes </button>
     <script src="javascript/tablero.js"></script>
     <script src="javascript/cubo.js"></script>
     <script src="javascript/manzana.js"></script>

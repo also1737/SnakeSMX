@@ -13,6 +13,22 @@ $resultado = $conn->query($consulta, MYSQLI_USE_RESULT);
 
 $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
 
-$primero = $resultado[0]["Usuario"];
-$segundo = $resultado[1]["Usuario"];
-$tercero = $resultado[2]["Usuario"];
+
+    
+if (isset($resultado[0]["Usuario"])) {
+    $primero = $resultado[0]["Usuario"];
+} else {
+    $primero = " ";
+}
+
+if (isset($resultado[1]["Usuario"])) {
+    $segundo = $resultado[1]["Usuario"];
+} else {
+    $segundo = " ";
+}
+
+if (isset($resultado[2]["Usuario"])) {
+    $tercero = $resultado[2]["Usuario"];
+} else {
+    $tercero = " ";
+}

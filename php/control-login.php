@@ -52,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $resultado = $resultado[0]["Password"];
 
         if(password_verify($pass, $resultado)){
-        echo "AAAAA";
             
             //Abrimos sesión
             session_start();
@@ -63,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         }
         else {
-            echo "cagoendios";
             //lanzamos error
             login_end();
         }
