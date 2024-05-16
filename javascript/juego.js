@@ -95,7 +95,7 @@ function bucleJuego() {
     }
     
     //mostramos la puntuación
-    puntos();
+    mostrarPuntos();
 
 }
 
