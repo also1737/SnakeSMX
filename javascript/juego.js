@@ -42,7 +42,7 @@ async function leerColor() {
     //esperamos a la promesa, con esto nos aseguramos de no crear la serpiente antes de que el PHP responda con el color de la serpiente.
     color = await promesa;
 
-    rafa1  = new Serpiente(15,12,1,color);
+    rafa1  = new Serpiente(15,12,1,0);
 
 }
 
