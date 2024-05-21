@@ -33,7 +33,7 @@
 
     <main>
         <h1>INICIO</h1>
-            <img id="gameplay" src="img/snakesmx.gif" height="644px" width="1346px">
+        <img id="gameplay" src="img/snakesmx.gif">
         <p>aquí podemos poner texto de explicación del juego y eso</p>
         <button onclick="location.href='juego.php'" class="jugar">Jugar</button>
         <div class="cubos_abajo">
