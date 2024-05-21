@@ -78,7 +78,6 @@ button {
 }
 
 #gameplay {
-    height: 644px; 
-    width: 1346px;
-    margin: 50%;
+    max-width: 100%;
+    height: auto;
 }
