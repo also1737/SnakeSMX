@@ -1,5 +1,8 @@
 <?php
  include "php/check-sesion.php";
+ if (!isset($_COOKIE["PHPSESSID"])){
+    header('Location: login.php');
+ }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,12 +36,34 @@
 
     <div id="opciones-ajustes" >
 
-        <p>llalalalalalal</p>
+        <p>nombre de jugadores</p>
+
+        <label> 1 <input type="radio" id="1J" name="jugadores" checked></label>
+        <label> 2 <input type="radio" id="2J" name="jugadores"></label>
+
+        <p> color de serpiente </p>
+        
+        <input type="color" id="color-serp" />
+    
+        <p> dificultad </p>
+
+        <label><input type="radio" id="dif-easy" name="dif"> fácil </label>
+        <label><input type="radio" id="dif-norm" name="dif" checked> normal </label>
+        <label><input type="radio" id="dif-hard" name="dif"> difícil </label>
+ 
+        <p> mapa </p>
+        
+        <label><input type="radio" id="mapa1" name="mapa"> 1 </label>
+        <label><input type="radio" id="mapa2" name="mapa"> 2 </label>
+        <label><input type="radio" id="mapa3" name="mapa"> 3 </label>
+        <label><input type="radio" id="mapa4" name="mapa"> 4 </label>
+
 
     </div>
 
     <canvas id="juego" width="1350" height="650" ></canvas>
-    <button id="ajustes"> Ajustes </button>
+    <button id="ajustes" onclick="mostrarAjustes();"> Ajustes </button>
+    <script src="javascript/mapa.js"></script>
     <script src="javascript/tablero.js"></script>
     <script src="javascript/cubo.js"></script>
     <script src="javascript/manzana.js"></script>
@@ -46,19 +71,44 @@
     <script src="javascript/juego.js"></script>
     <script>
 
-let boton = document.getElementById("boton_inicio");
+        let menuAjustes = document.getElementById("opciones-ajustes");
 
-    if (boton.innerHTML == "Iniciar Sesión") {
+        menuAjustes.style = "display: none;";
 
-        boton.style.backgroundColor = "#5d9b2e";
-        boton.style.color = "#fff";
+        let abierto = false;
 
-    } else if (boton.innerHTML == "Cerrar Sesión") { 
+        function mostrarAjustes() {
+
+            console.log("pulsado");
+
+            if (!abierto) {
+
+                menuAjustes.style = "display: block;";
+                abierto = true;
+
+            } else {
+
+                menuAjustes.style = "display: none;";
+                abierto = false;
+
+            };
+
+        }
+
+        let boton = document.getElementById("boton_inicio");
+
+        if (boton.innerHTML == "Iniciar Sesión") {
+
+            boton.style.backgroundColor = "#5d9b2e";
+            boton.style.color = "#fff";
+
+        } else if (boton.innerHTML == "Cerrar Sesión") { 
     
-        boton.style.backgroundColor =  "#cccccc";
-        boton.style.color = "#000";
+            boton.style.backgroundColor =  "#cccccc";
+            boton.style.color = "#000";
 
-    }
-</script>
+        }
+
+    </script>
 </body>
 </html>
