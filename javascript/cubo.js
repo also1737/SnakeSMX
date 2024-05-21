@@ -15,6 +15,7 @@ class Cubo {
         tipo 1 = serpiente (1J)
         tipo 2 = serpiente (2J)
         tipo 3 = manzana
+        tipo 4 = pared
         */
         this.tipo = tipo;
         this.color = "";

@@ -82,9 +82,10 @@ class Serpiente {
         //comprobamos qué es lo que hay delante de la serpiente
         switch (tablero.celdas[this.cabezaX][this.cabezaY].tipo) {
         
-            //el bloque de delante es parte de la serpiente, se acaba el juego
+            //el bloque de delante es parte de la serpiente o una pared, se acaba el juego
             case 1:
             case 2:
+            case 4:
                 this.muerto = true;
                 break;
 

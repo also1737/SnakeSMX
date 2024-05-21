@@ -36,7 +36,7 @@ class Manzana extends Cubo {
             this.y = Math.floor(Math.random() * alto);
 
         // si la posición escogida es parte de la serpiente, escogemos otra
-        } while (tablero[this.x][this.y].tipo == 1)
+        } while (tablero[this.x][this.y].tipo == 1 || tablero[this.x][this.y].tipo == 4)
         
         //añadimos manzana al tablero
         this.anadirArray(tablero);
