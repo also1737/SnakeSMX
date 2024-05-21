@@ -103,7 +103,7 @@ function bucleJuego() {
 empezar();
 
 //creamos un evento que escucha a las teclas presionadas y ejecuta la función
-window.addEventListener("keydown", function(event){ rafa1.teclasPresionadas(event.code, TeclasWASD); });
+window.addEventListener("keydown", function(event){ rafa1.teclasPresionadas(event.code, TeclasFlechas); });
 
 //función que muestra los puntos de la serpiente en la esquina del canvas
 function mostrarPuntos(){
