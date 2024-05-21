@@ -78,7 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $pass_hash = password_hash($pass1, PASSWORD_DEFAULT);
             
             //añadimos el usuario y la contraseña a la BD
-            //$consulta = "INSERT INTO Usuarios (Usuario, Password) VALUES ('$user', '".password_hash($pass1, PASSWORD_DEFAULT)."')";
             $consulta = "INSERT INTO Usuarios (Usuario, Password) VALUES ('$user', '$pass_hash')";
 
             //realizamos consulta

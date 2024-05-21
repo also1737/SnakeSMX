@@ -1,6 +1,6 @@
 class Tablero {
 
-    constructor(alto,ancho, tamano) {
+    constructor(alto, ancho, tamano, color) {
 
         //cantidad de cubos que habrá por fila y columna
         this.numeroFilas = alto / tamano;
@@ -8,6 +8,8 @@ class Tablero {
         
         //creamos la matriz que contendra las celdas de juego
         this.crearMatriz(tamano);
+
+        this.color = color;
 
     }
 
@@ -49,7 +51,7 @@ class Tablero {
             for (let j = 0; j < this.celdas[i].length; j++) {
 
                 if (this.celdas[i][j].tipo == 0) {
-                    this.celdas[i][j].color = "#00001a";
+                    this.celdas[i][j].color = this.color;
                 }
                 this.celdas[i][j].dibujar();
 
@@ -65,23 +67,26 @@ class Tablero {
             for (let j = 0; j < this.celdas[i].length; j++) {
 
                 this.celdas[i][j].tipo = 0;
+                this.celdas[i][j].color = this.color;
                 this.celdas[i][j].dibujar();
 
             };
 
         };
 
+        ajustes.style.display = "block";
+
         let texto = "Fin del juego";
 
         ctx.font = "80px Arial";
         ctx.fillStyle = "#fff"
-        ctx.fillText(texto, 450, 250);
+        ctx.fillText(texto, 450, 280);
 
         texto = "Puntuación final: " + puntos;
 
         ctx.font = "40px Arial";
         ctx.fillStyle = "#fff"
-        ctx.fillText(texto, 520, 340);
+        ctx.fillText(texto, 520, 350);
 
     }
 
