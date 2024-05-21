@@ -33,7 +33,7 @@
 
     <main>
         <h1>INICIO</h1>
-        <img id="gameplay" src="img/snakesmx.gif">
+        <img id="gameplay" src="img/snakesmx.gif"> <br>
         <button onclick="location.href='juego.php'" class="jugar">Jugar</button>
         <div class="cubos_abajo">
             <h3>Mejores puntuaciones globales</h3>
