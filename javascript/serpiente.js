@@ -11,13 +11,12 @@ class Serpiente {
         this.movimientoY = 0;
 
         //longitud
-        this.longitud = 3;
+        this.longitud = 4;
         this.score = 0;
 
         //jugador 1 o 2
         this.tipo = jugador;
         this.color = color;
-        console.log(this.color);
 
         //con esto comprobaremos colisiones
         this.muerto = false;
@@ -73,23 +72,18 @@ class Serpiente {
         // guardamos la posición del último cubo de la serpiente
         let x = bloques2[bloques2.length - 1]["x"];
         let y = bloques2[bloques2.length - 1]["y"];
-
-        /*if (tablero.celdas[this.cabezaX] == undefined || tablero.celdas[this.cabezaX][this.cabezaY] == undefined ) {
-            this.muerto = true;
-            return;
-        }*/
         
         //comprobamos qué es lo que hay delante de la serpiente
         switch (tablero.celdas[this.cabezaX][this.cabezaY].tipo) {
         
-            //el bloque de delante es parte de la serpiente o una pared, se acaba el juego
+            //el bloque de delante es parte de una serpiente o una pared, se acaba el juego
             case 1:
             case 2:
             case 4:
                 this.muerto = true;
                 break;
 
-            //el bloque de delante es una manzana, aumentamos longitud 
+            //el bloque de delante es una manzana, aumentamos longitud, puntuación y movemos la manzana 
             case 3:
                 this.longitud++;
                 this.score++;
@@ -155,8 +149,10 @@ class Serpiente {
                 break;
         
             case "Space":
-                if (this.muerto) empezar(); 
+                if (this.muerto) empezar();
+
+        }
+        
     }
-}
 
 }

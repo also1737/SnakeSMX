@@ -2,7 +2,7 @@ class Manzana extends Cubo {
     
     constructor (x,y,tamano,tablero) {
         super (x,y,tamano); //sacamos posición y tamaño de la clase Cubo
-        this.color = "";
+        this.color = "#b30000";
         this.Xantes = 0;
         this.Yantes = 0;
 
@@ -14,11 +14,10 @@ class Manzana extends Cubo {
 
         //borramos la manzana de su posición anterior
         tablero[this.Xantes][this.Yantes].tipo = 0;
-        tablero[this.Xantes][this.Yantes].color = "#00001a";
 
         //la movemos a su nueva posición
         tablero[this.x][this.y].tipo = 3;
-        tablero[this.x][this.y].color = "#b30000";
+        tablero[this.x][this.y].color = this.color;
 
     }
 
