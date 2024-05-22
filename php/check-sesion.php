@@ -13,3 +13,18 @@ if (isset($_COOKIE["PHPSESSID"]) && session_id() == NULL) {
     //hacemos que el botón diga "Iniciar sesión"
     $boton = "Iniciar ";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
