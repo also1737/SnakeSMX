@@ -25,16 +25,18 @@
     background-color: rgba(0,0,0, 0.9); 
     color: #ffffff; 
     text-align: center; 
+    
 }
 
 #opciones-ajustes a {
     padding: 8px;
+    padding-top: 15%;
     text-decoration: none;
     font-size: 36px;
     color: #ffffff;
     display: block;
     transition: 0.3s;
-    margin-top: 15%;
+    
 }
 
 @media screen and (max-height: 450px) {

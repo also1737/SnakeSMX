@@ -36,22 +36,22 @@
 
     <div id="opciones-ajustes" >
 
-        <p>nombre de jugadores</p>
+        <p>Jugadores</p>
 
         <label> 1 <input type="radio" id="1J" name="jugadores" checked></label>
         <label> 2 <input type="radio" id="2J" name="jugadores"></label>
 
-        <p> color de serpiente </p>
+        <p> Color de serpiente </p>
         
         <input type="color" id="color-serp" />
     
-        <p> dificultad </p>
+        <p> Dificultad </p>
 
         <label><input type="radio" id="dif-easy" name="dif"> fácil </label>
         <label><input type="radio" id="dif-norm" name="dif" checked> normal </label>
         <label><input type="radio" id="dif-hard" name="dif"> difícil </label>
  
-        <p> mapa </p>
+        <p> Mapa </p>
         
         <label><input type="radio" id="mapa1" name="mapa"> 1 </label>
         <label><input type="radio" id="mapa2" name="mapa"> 2 </label>
