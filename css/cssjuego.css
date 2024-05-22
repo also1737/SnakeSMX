@@ -5,9 +5,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: -1;
 }
+
 .pagina_seleccionada {
     background-color: #ccc;
     padding: 8px 15px;
     border-radius: 5px;
+}
+
+#opciones-ajustes {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1000; 
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.9); 
+    color: #ffffff; 
+    font-size: 23px;
+    text-align: center; 
+    padding-top: 13%;
+}
+
+#opciones-ajustes a {
+    padding: 8px;
+    padding-top: 13%;
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    
+}
+
+#ajustes {
+    background-color: #cccccc;
+    color: #000000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+@media screen and (max-height: 450px) {
+    #opciones-ajustes a {
+        font-size: 20px;
+    }
 }

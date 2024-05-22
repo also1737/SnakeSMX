@@ -36,29 +36,29 @@
 
     <div id="opciones-ajustes" >
 
-        <p>nombre de jugadores</p>
+        <p>Jugadores</p>
 
         <label> 1 <input type="radio" id="1J" name="jugadores" checked></label>
         <label> 2 <input type="radio" id="2J" name="jugadores"></label>
 
-        <p> color de serpiente </p>
+        <p> Color de serpiente </p>
         
         <input type="color" id="color-serp" />
         <button id="defecto" onclick="limpiarColor();"> Limpiar </button>
     
-        <p> dificultad </p>
+        <p> Dificultad </p>
 
-        <label><input type="radio" id="dif-easy" name="dif" value="30"> fácil </label>
-        <label><input type="radio" id="dif-norm" name="dif" checked value="25"> normal </label>
-        <label><input type="radio" id="dif-hard" name="dif" value="20"> difícil </label>
+        <label><input type="radio" id="dif-easy" name="dif" value="30"> Fácil </label>
+        <label><input type="radio" id="dif-norm" name="dif" value="25" checked> Normal </label>
+        <label><input type="radio" id="dif-hard" name="dif" value="20"> Difícil </label>
  
-        <p> mapa </p>
+        <p> Mapa </p>
         
         <label><input type="radio" id="mapa1" name="mapa" value="2"> 1 </label>
         <label><input type="radio" id="mapa2" name="mapa" value="3"> 2 </label>
         <label><input type="radio" id="mapa3" name="mapa" value="0"> 3 </label>
         <label><input type="radio" id="mapa4" name="mapa" value="0"> 4 </label>
-
+        <button id="ajustes" onclick="mostrarAjustes();"> Ajustes </button>
 
     </div>
 
