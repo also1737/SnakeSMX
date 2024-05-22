@@ -2,67 +2,68 @@ class Serpiente {
 
     constructor(cabezaX, cabezaY, jugador, color) {
 
-        //posición de la cabeza de la serpiente
+        // posición de la cabeza de la serpiente
         this.cabezaX = cabezaX;
         this.cabezaY = cabezaY;
 
-        //dirección en la que se mueve
+        // dirección en la que se mueve
         this.movimientoX = 1;
         this.movimientoY = 0;
 
-        //longitud
+        // longitud de la serpiente y puntuación
         this.longitud = 4;
         this.score = 0;
 
-        //jugador 1 o 2
+        // jugador 1 o 2
         this.tipo = jugador;
         this.color = color;
 
-        //con esto comprobaremos colisiones
+        // con esto comprobaremos colisiones
         this.muerto = false;
 
-        //array que guarda el cuerpo de la serpiente
+        // array que guarda el cuerpo de la serpiente
         this.bloques = this.empezar();
 
     }
 
     empezar() {
 
-        //creamos array con la longitud especificada
+        // creamos array con la longitud especificada
         let bloques = new Array(this.longitud);
 
-        //el array guardará las posiciones de todas sus partes (relativas a la cabeza)
+        // el array guardará las posiciones de todas sus partes (relativas a la cabeza)
         for (let i = 0; i < this.longitud; i++) {
 
             bloques[i] = {x: this.cabezaX - i, y: this.cabezaY};
 
         }
 
-        //devolvemos el array
+        // devolvemos el array
         return bloques;
     }
 
-
+    // función que mueve la serpiente
     mover(tablero, manzana) {
 
-        //guardamos una copia de la serpiente
+        // guardamos una copia de la serpiente
         let bloques2 = [...this.bloques];
 
-        //cambiamos la posición de la cabeza
+        // cambiamos la posición de la cabeza
         this.cabezaX += this.movimientoX;
         this.cabezaY += this.movimientoY;
         
-        //comprobamos si la cabeza de la serpiente está fuera del tablero
+        // comprobamos si la cabeza de la serpiente está fuera del tablero
         if (this.cabezaX < 0 || this.cabezaX > tablero.numeroColumnas -1 || this.cabezaY < 0 || this.cabezaY > tablero.numeroFilas - 1 ) { 
-            //se muere
+            
+            // se muere, salimos de la función
             this.muerto = true;
             return;
         }
 
-        //modificamos el array con esta nueva posición
+        // modificamos el array con esta nueva posición
         this.bloques[0] = {x: this.cabezaX, y: this.cabezaY};
 
-        //utilizamos la copia de la serpiente para actualizar la serpiente
+        // utilizamos la copia de la serpiente para actualizar la serpiente
         for (let i = 0; i < this.longitud - 1; i++) {
 
             this.bloques[i + 1] = bloques2[i];
@@ -73,17 +74,17 @@ class Serpiente {
         let x = bloques2[bloques2.length - 1]["x"];
         let y = bloques2[bloques2.length - 1]["y"];
         
-        //comprobamos qué es lo que hay delante de la serpiente
+        // comprobamos qué es lo que hay delante de la serpiente
         switch (tablero.celdas[this.cabezaX][this.cabezaY].tipo) {
         
-            //el bloque de delante es parte de una serpiente o una pared, se acaba el juego
+            // el bloque de delante es parte de una serpiente o una pared, se acaba el juego
             case 1:
             case 2:
             case 4:
                 this.muerto = true;
                 break;
 
-            //el bloque de delante es una manzana, aumentamos longitud, puntuación y movemos la manzana 
+            // el bloque de delante es una manzana, aumentamos longitud, puntuación y movemos la manzana 
             case 3:
                 this.longitud++;
                 this.score++;
@@ -91,14 +92,14 @@ class Serpiente {
                 break;
         
         }
-            
 
-        //borramos el último cubo de la serpiente
+        // borramos el último cubo de la serpiente
         tablero.celdas[x][y].tipo = 0;
         this.dibujar(tablero.celdas);
 
     }
 
+    // función que dibuja la serpiente en el tablero
     dibujar(tablero) {
 
         /*this.color += 1;
@@ -108,10 +109,10 @@ class Serpiente {
         let x = 0;
         let y = 0;
 
-        //iteramos el array de la serpiente
+        // iteramos el array de la serpiente
         for (let i = 0; i < this.bloques.length; i++) {
 
-            //dibujamos los bloques de la serpiente en el array
+            // dibujamos los bloques de la serpiente en el array
             x = this.bloques[i]["x"];
             y = this.bloques[i]["y"];
 
@@ -121,8 +122,9 @@ class Serpiente {
 
     }
 
-    //función que comprueba qué teclas se han presionado
+    // función que comprueba qué teclas se han presionado
     teclasPresionadas(tecla, teclas) {
+
 
         switch (tecla) {
 
@@ -154,5 +156,17 @@ class Serpiente {
         }
         
     }
+
+
+    // función que muestra los puntos de la serpiente en la esquina del canvas
+    mostrarPuntos(){
+
+        let texto = "Score: " + this.score;
+
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "#fff";
+        ctx.fillText(texto, 10, 30);
+
+}
 
 }
