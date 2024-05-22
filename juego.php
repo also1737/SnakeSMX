@@ -44,19 +44,20 @@
         <p> color de serpiente </p>
         
         <input type="color" id="color-serp" />
+        <button id="defecto" onclick="limpiarColor();"> Limpiar </button>
     
         <p> dificultad </p>
 
-        <label><input type="radio" id="dif-easy" name="dif"> fácil </label>
-        <label><input type="radio" id="dif-norm" name="dif" checked> normal </label>
-        <label><input type="radio" id="dif-hard" name="dif"> difícil </label>
+        <label><input type="radio" id="dif-easy" name="dif" value="30"> fácil </label>
+        <label><input type="radio" id="dif-norm" name="dif" checked value="25"> normal </label>
+        <label><input type="radio" id="dif-hard" name="dif" value="20"> difícil </label>
  
         <p> mapa </p>
         
-        <label><input type="radio" id="mapa1" name="mapa"> 1 </label>
-        <label><input type="radio" id="mapa2" name="mapa"> 2 </label>
-        <label><input type="radio" id="mapa3" name="mapa"> 3 </label>
-        <label><input type="radio" id="mapa4" name="mapa"> 4 </label>
+        <label><input type="radio" id="mapa1" name="mapa" value="2"> 1 </label>
+        <label><input type="radio" id="mapa2" name="mapa" value="3"> 2 </label>
+        <label><input type="radio" id="mapa3" name="mapa" value="0"> 3 </label>
+        <label><input type="radio" id="mapa4" name="mapa" value="0"> 4 </label>
 
 
     </div>
@@ -68,6 +69,8 @@
     <script src="javascript/cubo.js"></script>
     <script src="javascript/manzana.js"></script>
     <script src="javascript/serpiente.js"></script>
+    <script src="javascript/funciones-ajax.js"></script>
+    <script src="javascript/ajustes.js"></script>
     <script src="javascript/juego.js"></script>
     <script>
 
@@ -78,21 +81,27 @@
         let abierto = false;
 
         function mostrarAjustes() {
-
-            console.log("pulsado");
-
+        
             if (!abierto) {
-
+            
                 menuAjustes.style = "display: block;";
                 abierto = true;
-
+            
             } else {
-
+            
                 menuAjustes.style = "display: none;";
                 abierto = false;
-
+            
             };
+        
+        }
 
+        function limpiarColor() {
+        
+            let color = document.getElementById("color-serp");
+        
+            color.value = "#000000";
+        
         }
 
         let boton = document.getElementById("boton_inicio");
