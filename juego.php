@@ -57,7 +57,7 @@
         <label><input type="radio" id="mapa2" name="mapa"> 2 </label>
         <label><input type="radio" id="mapa3" name="mapa"> 3 </label>
         <label><input type="radio" id="mapa4" name="mapa"> 4 </label>
-
+        <button id="ajustes" onclick="mostrarAjustes();"> Ajustes </button>
 
     </div>
 

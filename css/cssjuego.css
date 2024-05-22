@@ -44,6 +44,7 @@
     color: #000000;
     padding: 8px 15px;
     border-radius: 5px;
+    text-decoration: none;
 }
 
 @media screen and (max-height: 450px) {
