@@ -47,9 +47,9 @@
     
         <p> Dificultad </p>
 
-        <label><input type="radio" id="dif-easy" name="dif"> fácil </label>
-        <label><input type="radio" id="dif-norm" name="dif" checked> normal </label>
-        <label><input type="radio" id="dif-hard" name="dif"> difícil </label>
+        <label><input type="radio" id="dif-easy" name="dif"> Fácil </label>
+        <label><input type="radio" id="dif-norm" name="dif" checked> Normal </label>
+        <label><input type="radio" id="dif-hard" name="dif"> Difícil </label>
  
         <p> Mapa </p>
         
