@@ -3,8 +3,8 @@ class Tablero {
     constructor(alto, ancho, tamano, color) {
 
         //cantidad de cubos que habrá por fila y columna
-        this.numeroFilas = alto / tamano;
-        this.numeroColumnas = ancho / tamano;
+        this.numeroFilas = Math.floor(alto / tamano);
+        this.numeroColumnas = Math.floor(ancho / tamano);
         
         //creamos la matriz que contendra las celdas de juego
         this.crearMatriz(tamano);
@@ -74,7 +74,7 @@ class Tablero {
 
         };
 
-        ajustes.style.display = "block";
+        botonAjustes.style.display = "block";
 
         let texto = "Fin del juego";
 

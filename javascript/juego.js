@@ -3,101 +3,12 @@ const ctx = c.getContext("2d");
 
 var bucle = 0;
 
-var tamano = 25;
-
-var idmapa = 4;
+var dificultad, idmapa, posX, posY;
 
 var color, tablerito, manzana, rafa1, paredes, mapa;
 
 var TeclasFlechas = ["ArrowUp","ArrowRight","ArrowDown","ArrowLeft"];
-
 var TeclasWASD = ["KeyW","KeyD","KeyS","KeyA"];
-
-//función que se encarga de leer el mapa seleccionado
-async function leerMapa() {
- 
-    //creamos una promesa
-    let promesa = new Promise(function(myResolve) {
-        
-        //creamos la petición
-        var peticion = new XMLHttpRequest();
-
-        //hacemos una petición post al archivo php pasando todas las variables
-        peticion.open("POST", "/javascript/leer-mapa.php", true);
-        peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
-        //variables post que pasamos
-        peticion.send("mapa=" + idmapa);
-        //esto se ejecuta cuando PHP responde a la petición
-        peticion.onload = function() {
-
-            //si la petición se realiza correctamente, mostramos el contenido devuelto por el php
-            if (peticion.status == 200 && peticion.responseText) {
-
-                //esta variable contiene el color de la serpiente
-                console.log(peticion.responseText);
-                myResolve(peticion.responseText);
-            
-            } else {
-
-                //si el usuario no tiene color, la serpiente se pone verde por defecto
-                myResolve("0");
-
-            }
-
-        }
-    });
-
-    //esperamos a la promesa, con esto nos aseguramos de no crear la serpiente antes de que el PHP responda con el color de la serpiente.
-    mapa = await promesa;
-
-    paredes = new Mapa(c.height, c.width, tamano, mapa);
-
-}
-
-//función que se encarga de leer el color de serpiente del usuario guardado en la BD
-async function leerColor() {
- 
-    //creamos una promesa
-    let promesa = new Promise(function(myResolve) {
-        
-        //creamos la petición
-        var peticion = new XMLHttpRequest();
-
-        //hacemos una petición post al archivo php pasando todas las variables
-        peticion.open("GET", "/javascript/user.php");
-
-        //esto se ejecuta cuando PHP responde a la petición
-        peticion.onload = function() {
-
-            //si la petición se realiza correctamente, mostramos el contenido devuelto por el php
-            if (peticion.status == 200 && peticion.responseText) {
-
-                //esta variable contiene el color de la serpiente
-                myResolve(peticion.responseText);
-            
-            } else {
-
-                //si el usuario no tiene color, la serpiente se pone verde por defecto
-                myResolve("#5d9b2e");
-
-            }
-
-        }
-
-        //realizamos petición
-        peticion.send();
-
-    });
-
-    //esperamos a la promesa, con esto nos aseguramos de no crear la serpiente antes de que el PHP responda con el color de la serpiente.
-    color = await promesa;
-    
-    //creamos la serpiente
-    rafa1  = new Serpiente(15,12,1,color);
-
-}
-
 
 /*mapa = [
     "00000000000000000000000000",
@@ -214,8 +125,17 @@ async function leerColor() {
 
 function empezar() {
 
+    botonAjustes.style.display = "none";
+
+    dificultad = ajustesDificultad();
+    idmapa = ajustesMapa();
+
+
+    posX = Math.floor((c.width / dificultad) / 2) - 4;
+    posY = Math.floor((c.height / dificultad) / 2);
+
     //creamos tablero
-    tablerito = new Tablero(c.height, c.width, tamano, "#00001a");
+    tablerito = new Tablero(c.height, c.width, dificultad, "#00001a");
 
     //leemos color de la serpiente para crearla
     leerColor();
@@ -223,10 +143,10 @@ function empezar() {
     leerMapa();
 
     //creamos manzana
-    manzana = new Manzana (35, 12, tamano, tablerito.celdas);
+    manzana = new Manzana (posX + 7, posY, dificultad, tablerito.celdas);
 
     //empezamos bucle del juego
-    bucle = window.setInterval(bucleJuego, 75);
+    bucle = window.setInterval(bucleJuego, (dificultad * 3));
 
 }
 
@@ -256,7 +176,7 @@ function bucleJuego() {
     }
     
     //mostramos la puntuación
-    mostrarPuntos();
+    rafa1.mostrarPuntos();
 
 }
 
@@ -264,18 +184,7 @@ function bucleJuego() {
 empezar();
 
 //creamos un evento que escucha a las teclas presionadas y ejecuta la función
-window.addEventListener("keydown", function(event){ rafa1.teclasPresionadas(event.code, TeclasWASD); });
-
-//función que muestra los puntos de la serpiente en la esquina del canvas
-function mostrarPuntos(){
-
-    let texto = "Score: " + rafa1.score;
-
-    ctx.font = "30px Arial";
-    ctx.fillStyle = "#fff";
-    ctx.fillText(texto, 10, 30);
-
-}
+window.addEventListener("keydown", function(event){ rafa1.teclasPresionadas(event.code, TeclasFlechas); });
 
 //función que sube la puntuación final del usuario a la BD
 function subirPuntuacion() {
@@ -289,7 +198,22 @@ function subirPuntuacion() {
     //convertimos la fecha al formato que acepta mysql (YYYY-MM-DD)
     let Fecha = año + "-" + mes + "-" + dia;
 
-    
+    let dif;
+
+    switch (dificultad) {
+
+        case 20:
+            dif = 3;
+            break;
+        case 25:
+            dif = 2;
+            break;
+        case 30:
+            dif = 1;
+            break;
+
+    }
+
     /*    REALIZAMOS LA PETICIÓN A PHP    */
 
     //creamos la petición
@@ -312,6 +236,6 @@ function subirPuntuacion() {
     peticion.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     //variables post que pasamos
-    peticion.send("puntos=" + rafa1.score + "&mapa=" + idmapa + "&fecha=" + Fecha + "&dif=2");
+    peticion.send("puntos=" + rafa1.score + "&mapa=" + idmapa + "&fecha=" + Fecha + "&dif=" + dif);
 
 }
