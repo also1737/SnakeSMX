@@ -54,11 +54,10 @@
  
         <p> Mapa </p>
         
-        <label><input type="radio" id="mapa1" name="mapa" value="2"> 1 </label>
-        <label><input type="radio" id="mapa2" name="mapa" value="3"> 2 </label>
-        <label><input type="radio" id="mapa3" name="mapa" value="0"> 3 </label>
-        <label><input type="radio" id="mapa4" name="mapa" value="0"> 4 </label>
-        <button id="ajustes" onclick="mostrarAjustes();"> Ajustes </button>
+        <label><input type="radio" id="mapa1" name="mapa" value="1" checked > 1 </label>
+        <label><input type="radio" id="mapa1" name="mapa" value="2"> 2 </label>
+        <label><input type="radio" id="mapa2" name="mapa" value="3"> 3 </label>
+        <button id="salir" onclick="mostrarAjustes();"> Ajustes </button>
 
     </div>
 

@@ -35,8 +35,6 @@ function ajustesMapa() {
 
     }
 
-    return 1;
-
 }
 
 function ajustesColor() {
