@@ -46,6 +46,8 @@ class Tablero {
 
     dibujar() {
 
+        c.style="background-color: #f4f4f4;"
+
         for (let i = 0; i < this.celdas.length; i++) {
 
             for (let j = 0; j < this.celdas[i].length; j++) {
@@ -60,7 +62,7 @@ class Tablero {
         };
     }
 
-    acabarJuego(puntos) {
+    acabarJuego() {
 
         for (let i = 0; i < this.celdas.length; i++) {
 
@@ -82,11 +84,29 @@ class Tablero {
         ctx.fillStyle = "#fff"
         ctx.fillText(texto, 450, 280);
 
-        texto = "Puntuación final: " + puntos;
-
         ctx.font = "40px Arial";
-        ctx.fillStyle = "#fff"
-        ctx.fillText(texto, 520, 350);
+
+        if (!rafa2) {
+
+            texto = "Puntuación final: " + rafa1.score;
+            ctx.fillText(texto, 520, 350);
+
+        } else {
+
+            texto = "Puntuaciones finales";
+
+            let jug1 = "Jugador 1: " + rafa1.score + " puntos"; 
+            let jug2 = "Jugador 2: " + rafa2.score + " puntos";
+
+            ctx.fillText(texto, 500, 350);
+
+            ctx.font = "30px Arial";
+
+            ctx.fillText(jug1, 550, 390);
+            ctx.fillText(jug2, 550, 430);
+
+
+        }
 
     }
 

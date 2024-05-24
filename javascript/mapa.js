@@ -20,7 +20,7 @@
         this.numeroColumnas = Math.floor(ancho / tamano);
 
         // el array que guardará la posición de todas las paredes para dibujarlas en el tablero
-        this.celdas = this.crearArray();;
+        this.celdas = this.crearArray();
 
     }
 

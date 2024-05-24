@@ -29,26 +29,28 @@
     padding-top: 13%;
 }
 
-#opciones-ajustes a {
-    padding: 8px;
-    padding-top: 13%;
-    text-decoration: none;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-    
+#opciones-ajustes input[type=radio] {
+    display: inline-block;
+    font-size: 1em;
 }
 
 #ajustes, #salir {
+    display: block;
     background-color: #cccccc;
     color: #000000;
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
+    margin: auto;
 }
 
 @media screen and (max-height: 450px) {
     #opciones-ajustes a {
         font-size: 20px;
     }
+}
+
+span {
+    margin-bottom: 40px;
+    vertical-align: middle;
 }

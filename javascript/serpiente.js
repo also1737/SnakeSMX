@@ -6,8 +6,14 @@ class Serpiente {
         this.cabezaX = cabezaX;
         this.cabezaY = cabezaY;
 
+        if (jugador == 1){
+            this.movimientoX = 1;
+        } else {
+            this.movimientoX = -1;
+        }
+
         // dirección en la que se mueve
-        this.movimientoX = 1;
+        
         this.movimientoY = 0;
 
         // longitud de la serpiente y puntuación
@@ -34,7 +40,7 @@ class Serpiente {
         // el array guardará las posiciones de todas sus partes (relativas a la cabeza)
         for (let i = 0; i < this.longitud; i++) {
 
-            bloques[i] = {x: this.cabezaX - i, y: this.cabezaY};
+            bloques[i] = {x: this.cabezaX - i * this.movimientoX, y: this.cabezaY};
 
         }
 
@@ -149,9 +155,6 @@ class Serpiente {
                 this.movimientoY = 0;
                 if (this.movimientoX != 1) this.movimientoX = -1;
                 break;
-        
-            case "Space":
-                if (this.muerto) empezar();
 
         }
         
@@ -159,14 +162,14 @@ class Serpiente {
 
 
     // función que muestra los puntos de la serpiente en la esquina del canvas
-    mostrarPuntos(){
+    mostrarPuntos(x, y){
 
         let texto = "Score: " + this.score;
 
         ctx.font = "30px Arial";
         ctx.fillStyle = "#fff";
-        ctx.fillText(texto, 10, 30);
+        ctx.fillText(texto, x, y);
 
-}
+    }
 
 }
