@@ -45,7 +45,7 @@ function empezar() {
     manzana = new Manzana (posX, posY, dificultad, tablerito.celdas);
 
     //empezamos bucle del juego
-    bucle = window.setInterval(bucleJuego, (dificultad * 2));
+    bucle = window.setInterval(bucleJuego, (dificultad * 3));
 
 }
 
